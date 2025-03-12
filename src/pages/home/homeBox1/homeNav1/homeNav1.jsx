@@ -3,10 +3,10 @@ import {TbBrandGoogleAnalytics} from "react-icons/tb";
 import {IoIosArrowDown} from "react-icons/io";
 import {useTranslation} from "react-i18next";
 
-function HomeNav({
-    setActiveSelect, activeSelect, selectedDate, setSelectedDate, dates, handleSetDateType
+function HomeNav1({
+    setActiveSelect, activeSelect, selectedDate, dates, handleSetDateType
                  }) {
-    const {t, i18n} = useTranslation()
+    const {t} = useTranslation()
 
 
     return (
@@ -42,4 +42,4 @@ function HomeNav({
     );
 }
 
-export default HomeNav;
+export default HomeNav1;

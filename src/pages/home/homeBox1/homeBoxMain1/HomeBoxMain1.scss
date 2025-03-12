@@ -1,0 +1,170 @@
+.HomeBoxMain1Container {
+  width: 100%;
+  flex-grow: 1;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: start;
+  gap: 30px;
+
+
+  .leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .miniPrg {
+      font-size: 12px;
+      color: #777777;
+      white-space: nowrap;
+    }
+
+    .count {
+      font-size: 28px;
+      color: #3D3D3D;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .percentageBlock{
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 4px 8px;
+      background-color: rgba(61, 255, 47, 0.2);
+      border-radius: 6px;
+
+      .percentage {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgb(74, 186, 18);
+      }
+      .arrowIcon{
+        font-size: 13px;
+        fill: rgb(74, 186, 18);
+        transform: rotate(180deg);
+      }
+    }
+    .negativeBlock{
+      background-color: rgba(220, 20, 60, 0.2);
+      .percentage{
+        color: crimson;
+      }
+      .arrowIcon{
+        fill: crimson;
+        transform: rotate(0);
+      }
+    }
+
+  }
+
+  .statisticCont{
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+
+    .statisticBlock{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      .values{
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .value{
+          font-size: 14px;
+          color: #777777;
+          width: 100%;
+          text-align: end;
+        }
+      }
+
+      .states{
+        width: 100%;
+        flex-grow: 1;
+        height: 95%;
+        position: relative;
+        .linesCont{
+          position: absolute;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          padding: 8px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .line{
+            width: 100%;
+            border-bottom: 1px solid #dadada;
+            //background-color: #dadada;
+          }
+        }
+
+        .stateLinesBlock{
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          padding: 8px 0;
+
+
+          .daysCont{
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            width: calc(100% - 30px);
+            display: flex;
+            justify-content: space-between;
+            margin: 0 15px;
+            .day{
+              width: 40px;
+              text-align: center;
+              font-size: 12px;
+              color: #777777;
+            }
+          }
+
+          .statesCont{
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            padding: 0 15px;
+            .stateLine{
+              transition: 0.5s ease-in-out !important;
+              animation: lineHeight 1s linear;
+              background-color: #8300ff;
+              box-shadow: rgba(131, 0, 255, 0.25) 0 10px 36px 0, rgba(131, 0, 255, 0.15) 0 0 3px 2px;
+            }
+
+            .weekDay{
+              width: 40px;
+              border-radius: 12px;
+            }
+          }
+
+        }
+
+      }
+    }
+
+  }
+
+
+}
+
+
+@keyframes lineHeight {
+  0%{
+    height: 1%;
+  }
+  100%{
+  }
+}

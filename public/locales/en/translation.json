@@ -3,11 +3,20 @@
     "date0": "Today",
     "date1": "Week",
     "date2": "Month",
-    "date3": "Year"
+    "date3": "Year",
+    "date4": "5 Years",
+    "weekS1": "Mon",
+    "weekS2": "Tue",
+    "weekS3": "Wed",
+    "weekS4": "Thu",
+    "weekS5": "Fri",
+    "weekS6": "Sat",
+    "weekS7": "Sun"
   },
   "home": {
     "header1": "Statistic",
     "header2": "Most sold types",
-    "header3": "Most sold products"
+    "header3": "Most sold products",
+    "miniPrg": "Total Requests"
   }
 }
