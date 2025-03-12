@@ -1,0 +1,13 @@
+{
+  "g": {
+    "date0": "Today",
+    "date1": "Week",
+    "date2": "Month",
+    "date3": "Year"
+  },
+  "home": {
+    "header1": "Statistic",
+    "header2": "Most sold types",
+    "header3": "Most sold products"
+  }
+}
