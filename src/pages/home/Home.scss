@@ -7,12 +7,14 @@
 
   .headLine{
     display: flex;
-    gap: 20px;
     height: calc(50% - 10px);
     width: 100%;
+    justify-content: space-between;
     .homeBox{
       height: 100%;
-      width: 50% !important;
+      width: 49% !important;
+      max-width: 49% !important;
+      overflow: hidden;
     }
   }
 

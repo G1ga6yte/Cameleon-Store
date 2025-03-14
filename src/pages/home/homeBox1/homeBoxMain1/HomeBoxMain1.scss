@@ -6,6 +6,8 @@
   display: flex;
   align-items: start;
   gap: 30px;
+  overflow: hidden;
+  max-width: 100%;
 
 
   .leftSide {
@@ -126,6 +128,9 @@
               font-size: 12px;
               color: #777777;
             }
+            .timeDay{
+              width: 12px;
+            }
           }
 
           .statesCont{
@@ -146,6 +151,10 @@
 
             .weekDay{
               width: 40px;
+              border-radius: 12px;
+            }
+            .timeLine{
+              width: 10px;
               border-radius: 12px;
             }
           }

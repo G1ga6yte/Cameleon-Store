@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.scss';
 import Navbar from "./pages/navbar/navbar";
 // import i18n from 'i18next';
 import {Images} from "./assets/images/images.js";
 import {Route, Routes} from "react-router";
 import Home from "./pages/home/home.jsx";
-function App() {
 
+function App() {
+    const [activeBackground,setActiveBackground] = useState(null);
+    const backgrounds = [
+        Images.backgroundImg1,
+        Images.backgroundImg2,
+        Images.backgroundImg3,
+        Images.backgroundImg4,
+    ]
+    useEffect(() => {
+        const randomNumber = Math.floor(Math.random() * 4);
+        setActiveBackground(backgrounds[randomNumber]);
+    }, [])
 
     return (
         <div
-            style={{backgroundImage: `url("${Images.backgroundImg3}")`}}
+            style={{backgroundImage: `url("${activeBackground}")`}}
             className='App'
         >
 
