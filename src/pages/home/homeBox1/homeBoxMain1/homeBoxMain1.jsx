@@ -8,7 +8,7 @@ function HomeBoxMain1({selectedDate}) {
 
     const [max, setMax] = useState(100)
     const [count, setCount] = useState(225);
-    const [percentage, setPercentage] = useState(-45);
+    const [percentage, setPercentage] = useState(45);
     const [states, setStates] = useState([]);
 
 
@@ -23,7 +23,7 @@ function HomeBoxMain1({selectedDate}) {
             days.push({
                 id: i,
                 dayNumber: dayNumber,
-                count : Math.floor(Math.random() * (100 - 10 + 1)) + 10
+                count: Math.floor(Math.random() * (100 - 10 + 1)) + 10
             }); // Add day number to array
 
         }
@@ -31,7 +31,21 @@ function HomeBoxMain1({selectedDate}) {
         return days.reverse();
     }
 
-    const handleChangeStats = () => {
+    function getLast5Years() {
+        const currentYear = new Date().getFullYear();
+
+        const lastFiveYears = [];
+        for (let i = 0; i < 5; i++) {
+            lastFiveYears.push({
+                id: i,
+                yearNumber: currentYear - i,
+                count: Math.floor(Math.random() * (1500 - 10 + 1)) + 10
+            });
+        }
+        return lastFiveYears;
+    }
+
+    const handleChangeStats = async () => {
         let data = []
         if (selectedDate === 0) {
             data = [
@@ -71,9 +85,9 @@ function HomeBoxMain1({selectedDate}) {
                 {id: 7, count: 90}
             ]
         } else if (selectedDate === 2) {
-            data = getLast30Days()
+            data = await getLast30Days()
         } else if (selectedDate === 3) {
-            data = data = [
+            data = [
                 {id: 1, count: 80},
                 {id: 2, count: 100},
                 {id: 3, count: 50},
@@ -87,6 +101,8 @@ function HomeBoxMain1({selectedDate}) {
                 {id: 11, count: 75},
                 {id: 12, count: 90}
             ]
+        } else if (selectedDate === 4) {
+            data = await getLast5Years()
         }
 
 
@@ -108,6 +124,8 @@ function HomeBoxMain1({selectedDate}) {
             setMax(300)
         } else if (maximum <= 500) {
             setMax(500)
+        } else {
+            setMax(1000)
         }
 
         setStates(data)
@@ -192,12 +210,18 @@ function HomeBoxMain1({selectedDate}) {
                                 <div className="statesCont">
                                     {states.map((state, index) => {
                                             let lineHeight = (state.count / max) * 100;
+                                            let over = "";
+                                            if (lineHeight > 100) {
+                                                lineHeight = 100;
+                                            }
                                             if (state.count) {
                                                 return (
                                                     <div key={index}
                                                          className="stateLine timeLine"
                                                          style={{height: `${states.length && lineHeight}%`}}
-                                                    ></div>
+                                                    >
+
+                                                    </div>
                                                 )
                                             } else {
                                                 return (
@@ -295,8 +319,8 @@ function HomeBoxMain1({selectedDate}) {
 
                             <div className="stateLinesBlock">
                                 <div className="daysCont">
-                                    {states.map((el, index)=> {
-                                        return(
+                                    {states.map((el, index) => {
+                                        return (
                                             <span className="day monthDay" key={index}>{el.dayNumber}</span>
                                         )
                                     })}
@@ -354,7 +378,7 @@ function HomeBoxMain1({selectedDate}) {
                             <div className="stateLinesBlock">
                                 <div className="daysCont">
                                     {months.map((month, index) => (
-                                        <span className="day month" key={index}>{month}</span>
+                                        <span className="day months" key={index}>{month}</span>
                                     ))}
                                 </div>
 
@@ -364,14 +388,14 @@ function HomeBoxMain1({selectedDate}) {
                                             if (state.count) {
                                                 return (
                                                     <div key={index}
-                                                         className="stateLine month"
+                                                         className="stateLine months"
                                                          style={{height: `${states.length && lineHeight}%`}}
                                                     ></div>
                                                 )
                                             } else {
                                                 return (
                                                     <div key={index}
-                                                         className="month"
+                                                         className="months"
                                                          style={{height: `${states.length && lineHeight}%`}}
                                                     ></div>
                                                 )
@@ -388,6 +412,63 @@ function HomeBoxMain1({selectedDate}) {
 
                 {selectedDate === 4 &&
                     <div className="statisticBlock">
+                        <div className="values">
+                            <p className="value">{max}</p>
+                            <p className="value">{max * 0.8}</p>
+                            <p className="value">{max * 0.6}</p>
+                            <p className="value">{max * 0.4}</p>
+                            <p className="value">{max * 0.2}</p>
+                            <p className="value">0</p>
+                        </div>
+
+                        <div className="states">
+                            <div className="linesCont">
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                            </div>
+
+                            <div className="stateLinesBlock">
+                                <div className="daysCont">
+                                    {states.map((el, index) => (
+                                        <span className="day years" key={index}>{el.yearNumber}</span>
+                                    ))}
+                                </div>
+
+                                <div className="statesCont">
+                                    {states.map((state, index) => {
+                                            let lineHeight = (state.count / max) * 100;
+                                            let over = "";
+                                            if (lineHeight > 100) {
+                                                lineHeight = 100;
+                                                over = `${state.count}`;
+                                            }
+                                            if (state.count) {
+                                                return (
+                                                    <div key={index}
+                                                         className="stateLine years"
+                                                         style={{height: `${states.length && lineHeight}%`}}
+                                                    >
+                                                        {over && <span className="overText">{state.count}</span>}
+                                                    </div>
+                                                )
+                                            } else {
+                                                return (
+                                                    <div key={index}
+                                                         className="years"
+                                                         style={{height: `${states.length && lineHeight}%`}}
+                                                    ></div>
+                                                )
+                                            }
+                                        }
+                                    )}
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
                 }
