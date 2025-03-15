@@ -11,7 +11,19 @@
     "weekS4": "Thu",
     "weekS5": "Fri",
     "weekS6": "Sat",
-    "weekS7": "Sun"
+    "weekS7": "Sun",
+    "monthS1": "Jan",
+    "monthS2": "Feb",
+    "monthS3": "Mar",
+    "monthS4": "Apr",
+    "monthS5": "May",
+    "monthS6": "Jun",
+    "monthS7": "Jul",
+    "monthS8": "Aug",
+    "monthS9": "Sep",
+    "monthS10": "Oct",
+    "monthS11": "Nov",
+    "monthS12": "Dec"
   },
   "home": {
     "header1": "Statistic",

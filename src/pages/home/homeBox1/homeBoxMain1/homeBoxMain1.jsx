@@ -12,6 +12,25 @@ function HomeBoxMain1({selectedDate}) {
     const [states, setStates] = useState([]);
 
 
+    function getLast30Days() {
+        const days = [];
+        const today = new Date();
+
+        for (let i = 0; i < 30; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() - i); // Subtract i days from today
+            const dayNumber = date.getDate(); // Get the day of the month
+            days.push({
+                id: i,
+                dayNumber: dayNumber,
+                count : Math.floor(Math.random() * (100 - 10 + 1)) + 10
+            }); // Add day number to array
+
+        }
+
+        return days.reverse();
+    }
+
     const handleChangeStats = () => {
         let data = []
         if (selectedDate === 0) {
@@ -50,6 +69,23 @@ function HomeBoxMain1({selectedDate}) {
                 {id: 5, count: 20},
                 {id: 6, count: 75},
                 {id: 7, count: 90}
+            ]
+        } else if (selectedDate === 2) {
+            data = getLast30Days()
+        } else if (selectedDate === 3) {
+            data = data = [
+                {id: 1, count: 80},
+                {id: 2, count: 100},
+                {id: 3, count: 50},
+                {id: 4, count: 35},
+                {id: 5, count: 20},
+                {id: 6, count: 75},
+                {id: 7, count: 90},
+                {id: 8, count: 50},
+                {id: 9, count: 35},
+                {id: 10, count: 20},
+                {id: 11, count: 75},
+                {id: 12, count: 90}
             ]
         }
 
@@ -90,6 +126,22 @@ function HomeBoxMain1({selectedDate}) {
         `${t("g.weekS5")}`,
         `${t("g.weekS6")}`,
         `${t("g.weekS7")}`
+    ]
+
+    const months = [
+        `${t("g.monthS1")}`,
+        `${t("g.monthS2")}`,
+        `${t("g.monthS3")}`,
+        `${t("g.monthS4")}`,
+        `${t("g.monthS5")}`,
+        `${t("g.monthS6")}`,
+        `${t("g.monthS7")}`,
+        `${t("g.monthS8")}`,
+        `${t("g.monthS9")}`,
+        `${t("g.monthS10")}`,
+        `${t("g.monthS11")}`,
+        `${t("g.monthS12")}`,
+
     ]
 
 
@@ -222,11 +274,119 @@ function HomeBoxMain1({selectedDate}) {
 
                 {selectedDate === 2 &&
                     <div className="statisticBlock">
+                        <div className="values">
+                            <p className="value">{max}</p>
+                            <p className="value">{max * 0.8}</p>
+                            <p className="value">{max * 0.6}</p>
+                            <p className="value">{max * 0.4}</p>
+                            <p className="value">{max * 0.2}</p>
+                            <p className="value">0</p>
+                        </div>
+
+                        <div className="states">
+                            <div className="linesCont">
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                            </div>
+
+                            <div className="stateLinesBlock">
+                                <div className="daysCont">
+                                    {states.map((el, index)=> {
+                                        return(
+                                            <span className="day monthDay" key={index}>{el.dayNumber}</span>
+                                        )
+                                    })}
+                                </div>
+
+                                <div className="statesCont">
+                                    {states.map((state, index) => {
+                                            let lineHeight = (state.count / max) * 100;
+                                            if (state.count) {
+                                                return (
+                                                    <div key={index}
+                                                         className="stateLine monthDay"
+                                                         style={{height: `${states.length && lineHeight}%`}}
+                                                    ></div>
+                                                )
+                                            } else {
+                                                return (
+                                                    <div key={index}
+                                                         className="monthDay"
+                                                         style={{height: `${states.length && lineHeight}%`}}
+                                                    ></div>
+                                                )
+                                            }
+                                        }
+                                    )}
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
                 }
 
                 {selectedDate === 3 &&
+                    <div className="statisticBlock">
+                        <div className="values">
+                            <p className="value">{max}</p>
+                            <p className="value">{max * 0.8}</p>
+                            <p className="value">{max * 0.6}</p>
+                            <p className="value">{max * 0.4}</p>
+                            <p className="value">{max * 0.2}</p>
+                            <p className="value">0</p>
+                        </div>
+
+                        <div className="states">
+                            <div className="linesCont">
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                                <div className="line"></div>
+                            </div>
+
+                            <div className="stateLinesBlock">
+                                <div className="daysCont">
+                                    {months.map((month, index) => (
+                                        <span className="day month" key={index}>{month}</span>
+                                    ))}
+                                </div>
+
+                                <div className="statesCont">
+                                    {states.map((state, index) => {
+                                            let lineHeight = (state.count / max) * 100;
+                                            if (state.count) {
+                                                return (
+                                                    <div key={index}
+                                                         className="stateLine month"
+                                                         style={{height: `${states.length && lineHeight}%`}}
+                                                    ></div>
+                                                )
+                                            } else {
+                                                return (
+                                                    <div key={index}
+                                                         className="month"
+                                                         style={{height: `${states.length && lineHeight}%`}}
+                                                    ></div>
+                                                )
+                                            }
+                                        }
+                                    )}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+                {selectedDate === 4 &&
                     <div className="statisticBlock">
 
                     </div>
