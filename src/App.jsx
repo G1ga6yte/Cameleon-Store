@@ -5,6 +5,7 @@ import Navbar from "./pages/navbar/navbar";
 import {Images} from "./assets/images/images.js";
 import {Route, Routes} from "react-router";
 import Home from "./pages/home/home.jsx";
+import ProductTypes from "./pages/productTypes/productTypes.jsx";
 
 function App() {
     const [activeBackground,setActiveBackground] = useState(null);
@@ -29,6 +30,7 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home/>} />
+                <Route path='/products' element={<ProductTypes/>}/>
             </Routes>
         </div>
     );
