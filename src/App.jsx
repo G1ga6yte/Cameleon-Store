@@ -6,8 +6,10 @@ import {Images} from "./assets/images/images.js";
 import {Route, Routes} from "react-router";
 import Home from "./pages/home/home.jsx";
 import ProductTypes from "./pages/productTypes/productTypes.jsx";
+import {useTranslation} from "react-i18next";
 
 function App() {
+    const {t} = useTranslation()
     const [activeBackground,setActiveBackground] = useState(null);
     const backgrounds = [
         Images.backgroundImg1,

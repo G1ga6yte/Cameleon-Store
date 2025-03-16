@@ -30,5 +30,8 @@
     "header2": "Most sold types",
     "header3": "Most sold products",
     "miniPrg": "Total Requests"
+  },
+  "products": {
+    "header1" : "Groups"
   }
 }
