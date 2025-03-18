@@ -11,3 +11,38 @@
 .G-box-shadow{
   box-shadow: rgba(0, 0, 0, 0.16) 0 10px 36px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
 }
+
+.G-context-menu{
+  border: 1px solid #e3e3e3;
+  background-color: white;
+  border-radius: 12px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+
+  .context-button{
+    width: 100%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 15px;
+    color: #3D3D3D;
+    gap: 12px;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+      background-color: #e3e3e3;
+    }
+    .icon{
+      font-size: 20px;
+    }
+  }
+
+}

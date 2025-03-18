@@ -32,6 +32,17 @@
     "miniPrg": "Total Requests"
   },
   "products": {
-    "header1" : "Groups"
+    "header1" : "Groups",
+    "header2": "Products",
+    "placeholder1": "Group name",
+    "placeholder2": "Article",
+    "placeholder3": "Name",
+    "placeholder4": "Bar-Code",
+    "placeholder5": "Number",
+    "btn1": "All",
+    "btn2": "Delete group",
+    "btn3": "Rename group",
+    "btn4": "Replace group",
+    "btn5": "New Product"
   }
 }
