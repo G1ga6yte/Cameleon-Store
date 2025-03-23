@@ -34,6 +34,8 @@
   "products": {
     "header1" : "Groups",
     "header2": "Products",
+    "header3": "Are you sure?",
+    "header4": "Rename",
     "placeholder1": "Group name",
     "placeholder2": "Article",
     "placeholder3": "Name",
@@ -43,6 +45,23 @@
     "btn2": "Delete group",
     "btn3": "Rename group",
     "btn4": "Replace group",
-    "btn5": "New Product"
+    "btn5": "New Product",
+    "btn6": "Cancel",
+    "btn7": "Delete",
+    "btn8": "Rename",
+    "btn9": "Replace",
+    "btn10": "Delete",
+    "btn11": "Edit",
+    "btn12": "Duplicate",
+    "btn13": "Replace",
+    "prg1": "Are you sure you want to delete this group ",
+    "prg2": "Please enter the new name of group:",
+    "prg3": "Chose the place where u will replace this group",
+    "th1": "ID",
+    "th2": "Article",
+    "th3": "Name",
+    "th4": "Selling Price",
+    "th5": "Enter Price",
+    "th6": "Bar-Code"
   }
 }

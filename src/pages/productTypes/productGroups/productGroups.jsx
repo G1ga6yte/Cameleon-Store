@@ -7,11 +7,18 @@ import {MdFolderCopy} from "react-icons/md";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { TbReplaceFilled } from "react-icons/tb";
+import DeleteModal from "./components/deleteModal.jsx";
+import RenameModal from "./components/renameModal.jsx";
+import ReplaceModal from "./components/replaceModal.jsx";
 
 function ProductGroups() {
     const {t} = useTranslation()
     const [activeGroup, setActiveGroup] = useState(9999)
     const [openGroup, setOpenGroup] = useState(null)
+
+    const [deleteModal, setDeleteModal] = useState(false)
+    const [renameModal, setRenameModal] = useState(false)
+    const [replaceModal, setReplaceModal] = useState(false)
 
     const groups = [
         {
@@ -115,15 +122,15 @@ function ProductGroups() {
     const [menuPosition, setMenuPosition] = useState({x: 0, y: 0});
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
-    const [actionID, setActionID] = useState(null);
+    const [actionGroup, setActionGroup] = useState(null);
 
-    const handleContextMenu = (event, id) => {
+    const handleContextMenu = (event, group) => {
         event.preventDefault(); // Prevent the default browser menu
         let windowsHeight = window.innerHeight;
         let windowsWidth = window.innerWidth;
-        setMenuPosition({x: event.clientX + 100 > windowsWidth ? event.clientX-100 : event.clientX, y: event.clientY+100 > windowsHeight ? event.clientY-100 : event.clientY});
+        setMenuPosition({x: event.clientX + 150 > windowsWidth ? event.clientX-150 : event.clientX, y: event.clientY+100 > windowsHeight ? event.clientY-100 : event.clientY});
         setMenuOpen(true);
-        setActionID(id)
+        setActionGroup(group)
     };
     const closeMenu = () => setMenuOpen(false);
 
@@ -133,7 +140,6 @@ function ProductGroups() {
                 setMenuOpen(false)
             }
         };
-
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
@@ -145,19 +151,39 @@ function ProductGroups() {
 
             {menuOpen && (<div ref={menuRef}
                                style={{
-                                   position: "absolute",
+                                   position: "fixed",
                                    top: `${menuPosition.y}px`,
                                    left: `${menuPosition.x}px`,
                                }}
-                               className="G-context-menu"
+                               className="G-context-menu G-box-shadow"
                                onClose={closeMenu}
             >
-                <button className="context-button"><RiDeleteBack2Fill className="icon" fill="red"/>{t("products.btn2")}</button>
-                <button className="context-button"><MdDriveFileRenameOutline className="icon" fill="#25cc00"/>{t("products.btn3")}</button>
-                <button className="context-button"><TbReplaceFilled className="icon" fill="#0096cc"/>{t("products.btn4")}</button>
+                <button onClick={()=>setDeleteModal(true)} className="context-button"><RiDeleteBack2Fill className="icon" fill="red"/>{t("products.btn2")}</button>
+                <button onClick={()=>setRenameModal(true)} className="context-button"><MdDriveFileRenameOutline className="icon" fill="#25cc00"/>{t("products.btn3")}</button>
+                <button onClick={()=>setReplaceModal(true)} className="context-button"><TbReplaceFilled className="icon" fill="#0096cc"/>{t("products.btn4")}</button>
 
-            </div>)
-            }
+            </div>)}
+
+            {deleteModal && <DeleteModal
+                actionGroup={actionGroup}
+                setDeleteModal={setDeleteModal}
+                deleteModal={deleteModal}
+            />}
+
+            {renameModal && <RenameModal
+                actionGroup={actionGroup}
+                setRenameModal={setRenameModal}
+                renameModal={renameModal}
+            />}
+
+            {replaceModal && <ReplaceModal
+                actionGroup={actionGroup}
+                setReplaceModal={setReplaceModal}
+                replaceModal={replaceModal}
+                groupsList={groups}
+            />}
+
+
 
             <div className="headerCont">
                 <p className="header">{t("products.header1")}</p>
@@ -187,7 +213,7 @@ function ProductGroups() {
                     {groups.map((group, index) => {
                         return (
                             <div key={index} className="group">
-                                <button onContextMenu={(e) => handleContextMenu(e, group.id)} onClick={() => {
+                                <button onContextMenu={(e) => handleContextMenu(e, group)} onClick={() => {
                                     if (group.inGroups) {
                                         if (openGroup === group.id) {
                                             setOpenGroup(null)
