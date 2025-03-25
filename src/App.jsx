@@ -7,6 +7,7 @@ import {Route, Routes} from "react-router";
 import Home from "./pages/home/home.jsx";
 import ProductTypes from "./pages/productTypes/productTypes.jsx";
 import {useTranslation} from "react-i18next";
+import ProductTypesMain from "./pages/productTypes/productTypesMain.jsx";
 
 function App() {
     const {t} = useTranslation()
@@ -32,7 +33,7 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/products' element={<ProductTypes/>}/>
+                <Route path='/products' element={<ProductTypesMain/>}/>
             </Routes>
         </div>
     );

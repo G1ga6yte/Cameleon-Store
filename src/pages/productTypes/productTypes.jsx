@@ -1,20 +1,24 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./ProductTypes.scss"
-import {useCartContext} from "../../CartContext.jsx";
 import ProductGroups from "./productGroups/productGroups.jsx";
 import ProductItems from "./productItems/productItems.jsx";
+import {useProductTypesContext} from "./productTypesContext.jsx";
+import NewProductModal from "./newProductModal/newProductModal.jsx";
 
 function ProductTypes () {
-    const {setActiveNav} = useCartContext()
-    useEffect(() => {
-        setActiveNav("products")
-    }, []);
+    const {newProductModal} = useProductTypesContext()
+
+
 
     return(
-        <div className="ProductTypesContainer">
-            <ProductGroups/>
-            <ProductItems/>
-        </div>
+            <div className="ProductTypesContainer">
+                {newProductModal &&
+                    <NewProductModal/>
+                }
+
+                <ProductGroups/>
+                <ProductItems/>
+            </div>
     )
 }
 
