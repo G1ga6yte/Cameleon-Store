@@ -251,6 +251,22 @@
   }
 }
 
+.G-scrollbar-style{
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(131, 0, 255, 0.5);
+    border-radius: 16px;
+    transition: 0.2s ease-in-out;
+  }
+  &::-webkit-scrollbar-thumb:hover{
+    cursor: pointer;
+    background: rgb(131, 0, 255);
+  }
+}
+
 @keyframes active {
   0%{
     scale: 0.1;
