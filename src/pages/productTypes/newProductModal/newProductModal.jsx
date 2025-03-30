@@ -7,13 +7,20 @@ import {useTranslation} from "react-i18next";
 import { FaPlus } from "react-icons/fa6";
 import { IoMdCloseCircle } from "react-icons/io";
 import {UseWaysImg} from "./useWaysImg/useWaysImg.js";
+import { FaCheck } from "react-icons/fa6";
 
 
 function NewProductModal() {
     const {setNewProductModal} = useProductTypesContext()
     const {t} = useTranslation();
 
-    const [useWays, setUseWays] = useState([])
+    ////////////// Use Ways State ///////////////////////////////
+    const [useWays, setUseWays] = useState([]) // ways list
+    const menuRef3 = useRef(null); // ref for block end
+    const [activeSelect, setActiveSelect] = useState(null) // active way img chose (index)
+    const [menuPosition, setMenuPosition] = useState({x: 0, y: 0}); // use way img list position
+    const [menuOpen, setMenuOpen] = useState(false); // use way img menu handle
+    const menuRef2 = useRef(null);
 
     const handleUseWays = (id) => {
         if (id) {
@@ -27,20 +34,29 @@ function NewProductModal() {
         setUseWays([...useWays, {
             img: null, text: "", id: useWays.length+1
         }])
+        setTimeout(()=>{
+            if (menuRef3.current) {
+                menuRef3.current.scrollIntoView({behavior: 'smooth', block: 'end'});
+            }
+        }, 0)
+
     }
 
-    const [activeSelect, setActiveSelect] = useState(null)
-    const [menuPosition, setMenuPosition] = useState({x: 0, y: 0});
-    const [menuOpen, setMenuOpen] = useState(false);
-    const menuRef2 = useRef(null);
-
-    const handleMenuOpen = (event) => {
-        event.preventDefault(); // Prevent the default browser menu
+    const handleMenuOpen = (event, index) => {
+        event.preventDefault();
         let windowsHeight = window.innerHeight;
         let windowsWidth = window.innerWidth;
         setMenuPosition({x: event.clientX + 150 > windowsWidth ? event.clientX-150 : event.clientX, y: event.clientY+200 > windowsHeight ? event.clientY-200 : event.clientY});
         setMenuOpen(true);
+        setActiveSelect(index)
     };
+
+    const handleUseWaysImage = (img) => {
+        const newUseWays = [...useWays]; // Create a copy of the current useWays
+        newUseWays[activeSelect] = { ...newUseWays[activeSelect], img }; // Only update the img for the active index
+        setUseWays(newUseWays); // Set the new state with updated img
+        setMenuOpen(false)
+    }
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -53,6 +69,11 @@ function NewProductModal() {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
+
+
+    ///////////// checkboxes /////////////////////////////
+    const [checkbox1, setCheckbox1] = useState(true)
 
 
     return (
@@ -68,13 +89,10 @@ function NewProductModal() {
                     {UseWaysImg.map((img, imgIndex) => (
                         <button
                             onClick={() => {
-                                const newUseWays = [...useWays]; // Create a copy of the current useWays
-                                newUseWays[activeSelect] = { ...newUseWays[activeSelect], img }; // Only update the img for the active index
-                                setUseWays(newUseWays); // Set the new state with updated img
-                                setMenuOpen(false); // Close the menu
+                                handleUseWaysImage(img)
                             }}
                             className={`selectBtn ${useWays[activeSelect]?.img === img && "activeSelectBtn"}`}
-                            key={imgIndex} // Use imgIndex here, not the index of useWays
+                            key={imgIndex}
                         >
                             <img src={img} alt=""/>
                         </button>
@@ -176,18 +194,30 @@ function NewProductModal() {
                             </div>
                         </div>
 
+                        <div className="checkboxesBlock">
+                            <button onClick={()=>setCheckbox1(prev=>!prev)} className="checkboxBtn">
+                                <div className={`checkbox ${checkbox1 && "activeCheckBox"}`}>
+                                    <FaCheck className="icon"/>
+                                </div>
+                                {t("products.prg4")}
+                            </button>
+                        </div>
+
                         <div className="thirdBlock">
                             <p className="header">{t("products.header5")}</p>
 
                             {useWays.map((item, index) => (
                                 <div className="useWaysBlock" key={index}>
                                     <button onClick={(e)=>{
-                                        setActiveSelect(index)
-                                        handleMenuOpen(e)
+                                        handleMenuOpen(e, index)
                                     }} className="selectBlock">
-                                        {item.img ? <img src={item.img} className="img" alt=""/>
-                                        : <FaImages className="icon"/>
-                                    }
+                                        {/*{item.img ? <img src={item.img} className="img" alt=""/>*/}
+                                        {/*    : <FaImages className="icon"/>*/}
+                                        {/*}*/}
+                                        {/*<img src={item.img} className="img" alt=""/>*/}
+                                        {item.img ? <img className="img" src={item.img} alt=""/> :
+                                            <FaImages className="icon"/>
+                                        }
                                     </button>
 
                                             <input value={item.text} onChange={(e)=>{
@@ -202,11 +232,25 @@ function NewProductModal() {
                                 </div>
                             ))}
 
-                            <button onClick={()=>handleAddNewUseWays()} className="addBtn"><FaPlus className="icon"/></button>
+                            <button  onClick={()=>handleAddNewUseWays()} className="addBtn"><FaPlus className="icon"/></button>
+
+                        </div>
+
+                        <div className="buttonsBlock">
+                            <button className="btn cancelBtn">
+                                {t("products.btn6")}
+                            </button>
+
+                            <button className="btn saveBtn">
+                                {t("products.btn14")}
+                            </button>
                         </div>
 
                     </div>
+                    <div ref={menuRef3} className="refBlock"></div>
+
                 </div>
+
             </div>
         </div>
     );
