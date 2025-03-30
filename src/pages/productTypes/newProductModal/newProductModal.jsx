@@ -15,40 +15,36 @@ function NewProductModal() {
 
     const [useWays, setUseWays] = useState([])
 
-    const handleUseWays = (indexx) => {
-        if (useWays[indexx]) {
-            let newUseWays = useWays.filter((w, index) => index === indexx);
+    const handleUseWays = (id) => {
+        if (id) {
+            // Filter out the item where the text matches the given item's text
+            const newUseWays = useWays.filter((el) => el.id !== id);
             setUseWays(newUseWays);
         }
     }
 
     const handleAddNewUseWays = () => {
         setUseWays([...useWays, {
-            img: null, text: ""
+            img: null, text: "", id: useWays.length+1
         }])
     }
 
     const [activeSelect, setActiveSelect] = useState(null)
-
-
     const [menuPosition, setMenuPosition] = useState({x: 0, y: 0});
     const [menuOpen, setMenuOpen] = useState(false);
-    const menuRef = useRef(null);
-    const [actionGroup, setActionGroup] = useState(null);
+    const menuRef2 = useRef(null);
 
-    const handleContextMenu = (event, group) => {
+    const handleMenuOpen = (event) => {
         event.preventDefault(); // Prevent the default browser menu
         let windowsHeight = window.innerHeight;
         let windowsWidth = window.innerWidth;
-        setMenuPosition({x: event.clientX + 150 > windowsWidth ? event.clientX-150 : event.clientX, y: event.clientY+100 > windowsHeight ? event.clientY-100 : event.clientY});
+        setMenuPosition({x: event.clientX + 150 > windowsWidth ? event.clientX-150 : event.clientX, y: event.clientY+200 > windowsHeight ? event.clientY-200 : event.clientY});
         setMenuOpen(true);
-        setActionGroup(group)
     };
-    const closeMenu = () => setMenuOpen(false);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
+            if (menuRef2.current && !menuRef2.current.contains(event.target)) {
                 setMenuOpen(false)
             }
         };
@@ -63,16 +59,28 @@ function NewProductModal() {
         <div className='NewProductModalContainer'>
 
             {menuOpen &&
-            <div ref={menuRef}
-                 style={{
-                     position: "fixed",
-                     top: `${menuPosition.y}px`,
-                     left: `${menuPosition.x}px`,
-                 }} className="selectCont">
-                {UseWaysImg.map((img, index) => (
-                    <img src={img} key={index} alt=""/>
-                ))}
-            </div>}
+                <div ref={menuRef2}
+                     style={{
+                         position: "fixed",
+                         top: `${menuPosition.y}px`,
+                         left: `${menuPosition.x}px`,
+                     }} className="selectCont">
+                    {UseWaysImg.map((img, imgIndex) => (
+                        <button
+                            onClick={() => {
+                                const newUseWays = [...useWays]; // Create a copy of the current useWays
+                                newUseWays[activeSelect] = { ...newUseWays[activeSelect], img }; // Only update the img for the active index
+                                setUseWays(newUseWays); // Set the new state with updated img
+                                setMenuOpen(false); // Close the menu
+                            }}
+                            className={`selectBtn ${useWays[activeSelect]?.img === img && "activeSelectBtn"}`}
+                            key={imgIndex} // Use imgIndex here, not the index of useWays
+                        >
+                            <img src={img} alt=""/>
+                        </button>
+                    ))}
+                </div>
+            }
 
             <div onClick={() => setNewProductModal(false)} className="backgroundBlock"></div>
 
@@ -173,18 +181,22 @@ function NewProductModal() {
 
                             {useWays.map((item, index) => (
                                 <div className="useWaysBlock" key={index}>
-                                    <button onClick={()=>{
+                                    <button onClick={(e)=>{
                                         setActiveSelect(index)
-                                        setMenuOpen(true)
+                                        handleMenuOpen(e)
                                     }} className="selectBlock">
                                         {item.img ? <img src={item.img} className="img" alt=""/>
                                         : <FaImages className="icon"/>
                                     }
                                     </button>
 
-                                            <input id="text" type="text" placeholder={t("products.placeholder16")} className="G-input" />
+                                            <input value={item.text} onChange={(e)=>{
+                                                const newUseWays = [...useWays];
+                                                newUseWays[index].text = e.target.value;
+                                                setUseWays(newUseWays);
+                                            }} id="text" type="text" placeholder={t("products.placeholder16")} className="G-input" />
 
-                                    <button onClick={()=>handleUseWays(index)} className="removeBtn">
+                                    <button onClick={()=>handleUseWays(item.id)} className="removeBtn">
                                         <IoMdCloseCircle className="icon"/>
                                     </button>
                                 </div>
