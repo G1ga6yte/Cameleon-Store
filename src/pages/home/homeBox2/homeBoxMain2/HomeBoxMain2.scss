@@ -1,0 +1,83 @@
+.HomeBoxMain2Container{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  .circle{
+    transform: translateX(-120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+    svg{
+      display: flex !important;
+      gap: 100px !important;
+    }
+    g{
+      font-size: 18px !important;
+      color: #3D3D3D !important;
+      cursor: pointer !important;
+    }
+    text{
+      font-size: 16px !important;
+      color: #3D3D3D !important;
+    }
+  }
+
+  .totalSum{
+    position: absolute;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 40px;
+    left: 50%;
+
+    .header{
+      font-size: 20px;
+      color: #3D3D3D;
+      width: 100%;
+      text-align: start !important;
+      font-weight: 500;
+    }
+
+    .sumPrg{
+      white-space: nowrap;
+      font-size: 20px;
+      font-weight: 500;
+      color: #8300ff;
+      text-shadow: 0px 0px 8px rgba(131, 0, 255, 0.5);
+
+    span{
+      font-size: 15px;
+    }
+    }
+
+
+
+  }
+
+  .percentageBlock{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 4px 8px;
+    background-color: rgba(61, 255, 47, 0.2);
+    border-radius: 6px;
+    position: absolute;
+    top: 45px;
+    left: 50%;
+
+    .percentage {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgb(74, 186, 18);
+    }
+    .arrowIcon{
+      font-size: 13px;
+      fill: rgb(74, 186, 18);
+      transform: rotate(180deg);
+    }
+  }
+}

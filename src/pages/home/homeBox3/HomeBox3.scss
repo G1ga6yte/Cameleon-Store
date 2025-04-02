@@ -1,3 +1,42 @@
 .HomeBox3Container{
+  flex-grow: 1;
+  overflow: hidden;
+  .homeNav{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .icon{
+      font-size: 24px;
+      fill: #8300ff;
+    }
+    .header{
+      font-size: 20px;
+      color: #3D3D3D;
+      width: 100%;
+      text-align: start !important;
+      font-weight: 500;
+    }
+  }
+
+  .productsContainer{
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    padding: 16px;
+
+    .productsLine{
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      height: 100%;
+
+      .product{
+        border-radius: 12px;
+        min-width: 120px;
+        height: 100%;
+      }
+    }
+  }
 
 }

@@ -29,7 +29,9 @@
     "header1": "Statistic",
     "header2": "Most sold types",
     "header3": "Most sold products",
-    "miniPrg": "Total Requests"
+    "miniPrg": "Total Requests",
+    "header4": "Total",
+    "header5": "There is little left"
   },
   "products": {
     "header1" : "Groups",
