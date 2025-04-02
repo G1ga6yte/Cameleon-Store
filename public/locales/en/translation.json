@@ -79,7 +79,8 @@
     "th6": "Bar-Code"
   },
   "partners": {
-    "header1": "Partners"
+    "header1": "Partners",
+    "header2": "Filters"
 
   }
 }
