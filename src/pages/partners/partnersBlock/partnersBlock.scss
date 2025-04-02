@@ -1,0 +1,143 @@
+.partnersBlock{
+  background-color: white;
+  width: 20%;
+  height: 100%;
+  border-radius: 16px;
+
+
+
+  .headerCont{
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #e3e3e3;
+
+    .header{
+      margin-top: 10px;
+      font-size: 20px;
+      color: #3D3D3D;
+      width: 100%;
+      text-align: start !important;
+      font-weight: 500;
+      margin-bottom: 30px;
+      margin-left: 20px;
+    }
+
+    .createBlock{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 3px;
+      padding: 0 6px;
+      margin-bottom: 10px;
+
+      .addBtn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 2px solid #8300ff;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover{
+          background-color: #8300ff;
+          .icon{
+            stroke: white;
+          }
+        }
+
+        .icon{
+          font-size: 28px;
+          stroke: #8300ff;
+          transition: 0.2s ease-in-out;
+
+        }
+
+      }
+
+    }
+  }
+
+  .groupsCont{
+    flex-grow: 1;
+    width: 100%;
+    overflow: auto;
+    padding: 10px 4px;
+    .groups{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+
+      .group{
+        width: 100%;
+        margin-bottom: 6px;
+        .groupButton{
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: none;
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+          align-items: center;
+          transition: 0.2s ease-in-out;
+          background-color: white;
+          box-shadow: rgba(0, 0, 0, 0.16) 0 3px 8px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
+
+          &:hover{
+            background-color: #dadada;
+          }
+
+          .groupName{
+            font-size: 16px;
+            color: #3D3D3D;
+            transition: 0.2s ease-in-out;
+            max-width: 90%;
+            text-align: start;
+          }
+
+          .groupArrow{
+            font-size: 16px;
+            fill: #3D3D3D;
+            transition: 0.2s ease-in-out;
+          }
+
+          .openArrow{
+            rotate: 90deg;
+          }
+
+        }
+        .activeGroup{
+          background-color: #8300ff !important;
+          .groupName{
+            color: white;
+            transform: translateX(5px);
+          }
+
+          .activeArrow{
+            fill: white;
+          }
+        }
+
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: white;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(131, 0, 255, 0.5);
+      border-radius: 16px;
+      transition: 0.2s ease-in-out;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+      cursor: pointer;
+      background: rgb(131, 0, 255);
+    }
+  }
+
+}
