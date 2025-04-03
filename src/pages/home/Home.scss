@@ -1,5 +1,6 @@
 .HomeContainer {
-  width: 100%;
+  flex-grow: 1;
+  max-width: calc(100% - 80px);
   height: 100%;
   display: flex;
   gap: 20px;

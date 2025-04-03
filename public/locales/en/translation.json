@@ -82,7 +82,9 @@
   },
   "partners": {
     "header1": "Partners",
-    "header2": "Filters"
+    "header2": "Filters",
+    "placeholder1": "Started",
+    "placeholder2": "To"
 
   }
 }

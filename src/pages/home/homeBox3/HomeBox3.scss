@@ -1,6 +1,11 @@
+*{
+  box-sizing: border-box !important;
+}
+
 .HomeBox3Container{
   flex-grow: 1;
   overflow: hidden;
+  width: 100%;
   .homeNav{
     display: flex;
     align-items: center;
@@ -21,22 +26,97 @@
 
   .productsContainer{
     width: 100%;
-    overflow: auto;
+    overflow-x: auto;
     height: 100%;
     padding: 16px;
 
-    .productsLine{
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 12px;
-      height: 100%;
-
-      .product{
-        border-radius: 12px;
-        min-width: 120px;
+    .productsScrollLine{
+      width: 100%;
+      .productsLine{
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1%;
+        row-gap: 12px;
         height: 100%;
+        .product{
+          border-radius: 12px;
+          width: 19%;
+          height: 100%;
+          overflow: hidden;
+          padding: 20px;
+          position: relative;
+
+          .warningIcon{
+            font-size: 20px;
+            stroke: #ff3838;
+            fill: #ff3838;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+          }
+
+          .headBlock{
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+
+            img{
+              width: 75px;
+              height: 75px;
+              filter: grayscale(2);
+              opacity: 0.3;
+              mix-blend-mode: multiply;
+              border-radius: 12px;
+            }
+
+            .activeImg{
+              filter: unset !important;
+              object-fit: cover !important;
+              opacity: 1 !important;
+            }
+
+            .name{
+              font-size: 16px;
+              font-weight: 500;
+              color: #3D3D3D;
+            }
+          }
+
+          .infoLine{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .infoHeader{
+              font-weight: 500;
+            }
+            span{
+              font-size: 15px;
+              color: #3D3D3D;
+              margin-bottom: 12px;
+            }
+          }
+
+          .peacesPrg{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .infoHeader{
+              color: #3D3D3D;
+            }
+            span{
+              color: #ff3838;
+              font-size: 15px;
+              font-weight: 500;
+            }
+          }
+        }
       }
     }
+
+
   }
 
 }

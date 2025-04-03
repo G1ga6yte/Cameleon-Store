@@ -3,14 +3,32 @@
   border-bottom: 1px solid #e3e3e3;
   padding: 20px;
 
-  .header{
-    margin-top: 10px;
-    font-size: 20px;
-    color: #3D3D3D;
-    width: 100%;
-    text-align: start !important;
-    font-weight: 500;
-    margin-bottom: 30px;
-    margin-left: 20px;
+
+  .headLine{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+    .header{
+      margin-top: 10px;
+      font-size: 20px;
+      color: #3D3D3D;
+      width: 100%;
+      text-align: start !important;
+      font-weight: 500;
+      margin-bottom: 30px;
+      margin-left: 20px;
+    }
+
+    .calendarCont{
+      display: flex;
+      gap: 30px;
+
+      .p-calendar{
+        height: 30px;
+      }
+    }
+
   }
+
 }

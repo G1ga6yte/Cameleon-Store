@@ -3,6 +3,8 @@ import './HomeBox3.scss';
 import {useTranslation} from "react-i18next";
 import { TiWarningOutline } from "react-icons/ti";
 import img1 from "./img1.png"
+import { IoWarningOutline } from "react-icons/io5";
+import testImg from "./Epoxy-Primer-10-1.webp"
 
 function HomeBox3() {
     const {t} = useTranslation();
@@ -12,7 +14,7 @@ function HomeBox3() {
             name: "Epoxy 500g",
             _id: 2525,
             article: "654245",
-            img: null,
+            img: testImg,
             peaces: 7
         },
         {
@@ -43,6 +45,20 @@ function HomeBox3() {
             img: null,
             peaces: 5
         },
+        {
+            name: "Epoxy 500g",
+            _id: 2525,
+            article: "654245",
+            img: null,
+            peaces: 7
+        },
+        {
+            _id: 2526,
+            article: "123456",
+            name: "Acrylic Paint 1L",
+            img: null,
+            peaces: 4
+        }
     ]
 
 
@@ -54,21 +70,34 @@ function HomeBox3() {
                 <p className="header">{t("home.header5")}</p>
             </div>
 
-            <div className="productsContainer">
-                <div className="productsLine">
-                    {productsLeft.map((product, index) => (
-                        <div className="product G-box-shadow" key={index}>
-                            <div className="headBlock">
-                                <img src={img1} alt=""/>
-                                <p className="name">{product.name}</p>
+            <div className="productsContainer G-scrollbar-style">
+                <div className="productsScrollLine">
+                    <div className="productsLine">
+                        {productsLeft.map((product, index) => (
+                            <div className="product G-box-shadow" key={index}>
+                                <IoWarningOutline className="warningIcon"/>
+                                <div className="headBlock">
+                                    {product.img ?
+                                        <img src={product.img} className="activeImg" alt=""/>
+                                        : <img src={img1} alt=""/>
+                                    }
+                                    <p className="name">{product.name}</p>
+                                </div>
+                                <p className="infoLine">
+                                    <span className="infoHeader">ID: </span>
+                                    <span>{product._id}</span>
+                                </p>
+                                <p className="infoLine">
+                                    <span  className="infoHeader">Article: </span>
+                                    <span>{product.article}</span>
+                                </p>
+                                <p className="peacesPrg">
+                                    <span className="infoHeader">Peaces Left:</span>
+                                    <span>{product.peaces}</span>
+                                </p>
                             </div>
-                            <p className="infoLine">
-                                <span>ID: </span>
-                            </p>
-                            <p className="infoLine"></p>
-                            <p className="peacesPrg"></p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 
