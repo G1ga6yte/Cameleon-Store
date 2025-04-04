@@ -83,8 +83,13 @@
   "partners": {
     "header1": "Partners",
     "header2": "Filters",
-    "placeholder1": "Started",
-    "placeholder2": "To"
+    "placeholder1": "From",
+    "placeholder2": "To",
+    "prg1": "Total selling price",
+    "prg2": "Total cost price",
+    "prg3": "Total profit",
+    "prg4": "Total debt",
+    "btn1": "Pay"
 
   }
 }
