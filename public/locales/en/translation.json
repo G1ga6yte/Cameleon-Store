@@ -89,7 +89,16 @@
     "prg2": "Total cost price",
     "prg3": "Total profit",
     "prg4": "Total debt",
-    "btn1": "Pay"
+    "prg5": "Paid",
+    "prg6": "Not Paid",
+    "btn1": "Pay",
+    "btn2": "New Order",
+    "th1": "ID",
+    "th2": "Date",
+    "th3": "Note",
+    "th4": "Selling Sum",
+    "th5": "Profit",
+    "th6": "Status"
 
   }
 }

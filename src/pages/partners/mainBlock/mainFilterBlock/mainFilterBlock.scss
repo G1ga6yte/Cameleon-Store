@@ -1,6 +1,6 @@
 .mainFilterBlock{
   height: 25%;
-  border-bottom: 1px solid #777777;
+  border-bottom: 1px solid #e3e3e3;
   padding: 20px;
 
 
@@ -18,8 +18,18 @@
       font-weight: 500;
     }
 
+
+    .header2{
+      font-size: 16px;
+      color: #3D3D3D;
+      width: 100%;
+      text-align: start !important;
+      font-weight: 500;
+    }
+
     .calendarCont{
       display: flex;
+      align-items: center;
       gap: 10px;
 
 
@@ -46,10 +56,27 @@
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
     column-gap: 100px;
     row-gap: 20px;
     border-bottom: 1px solid #e3e3e3;
+
+    .newOrderBtn{
+      border-radius: 8px;
+      padding: 4px 12px;
+      border: none;
+      outline: 0;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      background-color: #8300ff;
+      transition: 0.2s ease-in-out;
+      &:hover{
+        filter: brightness(1.1);
+      }
+    }
   }
 
   .thirdLine{
@@ -68,7 +95,7 @@
     align-items: center;
     gap: 12px;
     span{
-      font-size: 18px;
+      font-size: 16px;
       color: #3D3D3D;
     }
 

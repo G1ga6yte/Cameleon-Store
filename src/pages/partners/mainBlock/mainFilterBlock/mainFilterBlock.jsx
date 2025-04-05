@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Calendar } from "primereact/calendar";
 
 
-function MainFilterBlock() {
+function MainFilterBlock({setNewOrderDialog}) {
     const { t } = useTranslation();
     const monthAgo = new Date(); // Get today's date
     monthAgo.setMonth(monthAgo.getMonth() - 1);
@@ -27,7 +27,7 @@ function MainFilterBlock() {
                 <p className="header">{t("partners.header2")}</p>
                 <div className="calendarCont p-calendar-w-btn">
 
-                    <span className="header">
+                    <span className="header2">
                         {t('partners.placeholder1')}:
                     </span>
                     <Calendar
@@ -37,7 +37,7 @@ function MainFilterBlock() {
                         value={selectedDate1}
                         onChange={(e) => handleDateChange1(e.value)}
                     />
-                    <span className="header">
+                    <span className="header2">
                         {t('partners.placeholder2')}:
                     </span>
                     <Calendar
@@ -65,6 +65,10 @@ function MainFilterBlock() {
                     <span className="miniHeader">{t("partners.prg3")}:</span>
                     <span >20000.00</span>
                 </p>
+
+                <button onClick={()=>setNewOrderDialog(true)} className="newOrderBtn">
+                    {t("partners.btn2")}
+                </button>
 
 
 
