@@ -267,6 +267,23 @@
   }
 }
 
+
+
+.p-datepicker-title{
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.p-datepicker-group-container{
+  padding: 12px;
+}
+
+.p-datepicker-header{
+  margin-bottom: 10px;
+
+}
+
 @keyframes active {
   0%{
     scale: 0.1;

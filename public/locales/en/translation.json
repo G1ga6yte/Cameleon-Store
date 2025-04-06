@@ -83,8 +83,11 @@
   "partners": {
     "header1": "Partners",
     "header2": "Filters",
+    "header3": "New Order",
     "placeholder1": "From",
     "placeholder2": "To",
+    "placeholder3": "Article, Bar-Code...",
+    "placeholder4": "Name",
     "prg1": "Total selling price",
     "prg2": "Total cost price",
     "prg3": "Total profit",
@@ -93,12 +96,19 @@
     "prg6": "Not Paid",
     "btn1": "Pay",
     "btn2": "New Order",
+    "btn3": "Products List",
     "th1": "ID",
     "th2": "Date",
     "th3": "Note",
     "th4": "Selling Sum",
     "th5": "Profit",
-    "th6": "Status"
+    "th6": "Status",
+    "th7": "Article",
+    "th8": "Name",
+    "th9": "Price",
+    "th10": "Total"
+
+
 
   }
 }
