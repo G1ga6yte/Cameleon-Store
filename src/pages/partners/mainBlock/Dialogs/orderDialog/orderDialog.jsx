@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next";
 import { IoClose } from "react-icons/io5";
 import { HiMiniSquares2X2 } from "react-icons/hi2";
 import { BsTrash3 } from "react-icons/bs";
+import OrderDialogListMenu from "../orderDialogListMenu/orderDialogListMenu.jsx";
 
 function OrderDialog({setOrderDialog}) {
     const {t} = useTranslation();
@@ -18,6 +19,11 @@ function OrderDialog({setOrderDialog}) {
 
     return (
         <div className='OrderDialogContainer'>
+
+            {listMenuDialog && <OrderDialogListMenu
+                setListMenuDialog={setListMenuDialog}
+                setProductsList={setProductsList}
+            />}
             <div onClick={()=>setOrderDialog(false)} className="backgroundBlock"></div>
 
             <div className="OrderDialog G-box-shadow">
