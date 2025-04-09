@@ -94,6 +94,9 @@
     "prg4": "Total debt",
     "prg5": "Paid",
     "prg6": "Not Paid",
+    "prg7": "Total Price",
+    "prg8": "Paid",
+    "prg9":"Rest To Pay",
     "btn1": "Pay",
     "btn2": "New Order",
     "btn3": "Products List",
@@ -106,7 +109,8 @@
     "th7": "Article",
     "th8": "Name",
     "th9": "Price",
-    "th10": "Total"
+    "th10": "Total",
+    "th11": "Peaces"
 
 
 

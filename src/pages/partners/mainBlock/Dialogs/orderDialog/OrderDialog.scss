@@ -1,4 +1,4 @@
-.OrderDialogContainer{
+.OrderDialogContainer {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,8 @@
   align-items: center;
   justify-content: center;
 
-  .backgroundBlock{
+
+  .backgroundBlock {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -18,7 +19,8 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
   }
-  .OrderDialog{
+
+  .OrderDialog {
     position: relative;
     z-index: 2;
     width: 1200px;
@@ -30,14 +32,14 @@
     flex-direction: column;
     overflow: hidden;
 
-    .headLine{
+    .headLine {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 16px 24px 16px 40px;
 
 
-      .header{
+      .header {
         font-size: 20px;
         color: #3D3D3D;
         width: 100%;
@@ -45,7 +47,7 @@
         font-weight: 500;
       }
 
-      .closeBtn{
+      .closeBtn {
         padding: 8px;
         display: flex;
         align-items: center;
@@ -56,30 +58,33 @@
         background-color: #e3e3e3;
         transition: 0.2s ease-in-out;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
           filter: brightness(1.1);
         }
-        .icon{
+
+        .icon {
           font-size: 20px;
         }
       }
 
     }
 
-    .inputsContainer{
+    .inputsContainer {
       display: flex;
       align-items: center;
       padding: 16px 32px;
       gap: 16px;
       border-bottom: 1px solid #e3e3e3;
-      .searchInput{
+
+      .searchInput {
         padding: 8px 24px;
         min-width: 25%;
         border-radius: 8px;
         border: 1px solid #e3e3e3;
       }
 
-      .toggleListMenu{
+      .toggleListMenu {
         padding: 8px 32px;
         display: flex;
         align-items: center;
@@ -93,138 +98,205 @@
         font-size: 14px;
         transition: 0.2s ease-in-out;
 
-        &:hover{
+        &:hover {
           filter: brightness(0.9);
         }
 
-        .icon{
+        .icon {
           font-size: 16px;
         }
       }
     }
 
-    .ListContainer{
+    .ListContainer {
       flex-grow: 1;
       width: 100%;
       overflow: auto;
       position: relative;
 
+      .totalCont{
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+        background-color: white;
+        width: 100%;
+        border-top: 1px solid #dadada;
+        height: 150px;
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 16px;
 
 
-        .table{
-          width: 100%;
-          overflow: auto;
-          position: relative;
-
-          .checkboxTH{
-            width: 60px;
-            padding: 0 !important;
-
-            .checkbox{
-              margin: 2px auto;
-              width: 20px;
-              height: 20px;
-              border: 1px solid #dadada;
-              border-radius: 6px;
-              background-color: white;
-              cursor: pointer;
-              transition: 0.2s ease-in-out;
-              color: white;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 14px;
-              &:hover{
-                border-color: #777777;
-                filter: brightness(1.1);
-              }
+        .infoCont{
+            .prgLine{
+              
             }
+        }
+
+      }
 
 
-            .checked{
-              background-color: #8300ff;
-            }
-          }
+      .table {
+        width: 100%;
+        overflow: auto;
+        position: relative;
 
-          .tableHead{
-            width: 100%;
-            background-color: #e3e3e3;
-            position: sticky;
-            top: 0;
-            z-index: 5;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        .checkboxTH {
+          width: 60px;
+          padding: 0 !important;
 
-            tr{
-              background-color: #e3e3e3;
-              th{
-                outline: 2px solid #e3e3e3;
-                background-color: #e3e3e3;
-                font-weight: 400;
-                font-size: 14px;
-                padding: 2px;
-                color: #686868;
-              }
-            }
-          }
-
-          .tableBody{
-            width: 100%;
+          .checkbox {
+            margin: 2px auto;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #dadada;
+            border-radius: 6px;
             background-color: white;
-            tr{
-              height: 60px;
-              color: #3D3D3D;
-              transition: 0.5s ease-in-out;
-              cursor: pointer;
-              &:hover{
-                background-color: #e3e3e3;
-                transition: 0.1s ease-in-out !important;
-                td{
-                  outline: 1px solid #e3e3e3;
-                  transition: 0.1s ease-in-out !important;
-                }
-              }
-            }
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
 
-            td{
-              outline: 1px solid white;
-              padding-left: 10px;
-              text-align: center;
-              transition: 0.5s ease-in-out;
+            &:hover {
+              border-color: #777777;
+              filter: brightness(1.1);
             }
+          }
 
-            .status{
-              display: block;
-              padding: 4px 12px;
-              border-radius: 24px;
+
+          .checked {
+            background-color: #8300ff;
+          }
+        }
+
+        .tableHead {
+          width: 100%;
+          background-color: #e3e3e3;
+          position: sticky;
+          top: 0;
+          z-index: 5;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+          tr {
+            background-color: #e3e3e3;
+
+            th {
+              outline: 2px solid #e3e3e3;
+              background-color: #e3e3e3;
+              font-weight: 400;
               font-size: 14px;
-              color: white;
-              width: max-content;
-              margin: 0 auto;
-              white-space: nowrap;
-            }
-
-            .statusOK{
-              background-color: rgba(36, 195, 0, 0.4);
-            }
-
-            .statusDebt{
-              background-color: rgba(255, 56, 56, 0.4);
-
+              padding: 2px;
+              color: #686868;
             }
           }
         }
 
-        .overflowWhiteBlock{
-          background: rgb(255,255,255);
-          background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-          position: sticky;
-          bottom: 0;
-          left: 0;
+        .tableBody {
           width: 100%;
-          height: 50px;
-          z-index: 2;
-          pointer-events: none;
+          background-color: white;
+
+          tr {
+            height: 60px;
+            color: #3D3D3D;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #e3e3e3;
+              transition: 0.1s ease-in-out !important;
+
+              td {
+                outline: 1px solid #e3e3e3;
+                transition: 0.1s ease-in-out !important;
+              }
+            }
+
+            .indexTD {
+              width: 50px;
+              text-align: center;
+            }
+            
+            .peacesInput{
+              max-width: 100px;
+              text-align: center;
+              padding: 12px;
+              font-size: 15px;
+              color: #3D3D3D;
+              background-color: transparent;
+              border: none;
+              outline: none;
+            }
+
+            .totalTD{
+              width: 150px;
+            }
+
+            .removeBtn{
+              width: 50px;
+              padding: 8px;
+              cursor: pointer;
+              background-color: #8300ff;
+              border: none;
+              outline: none;
+              border-radius: 8px;
+              transition: 0.2s ease-in-out;
+
+              &:hover{
+                filter: brightness(0.9);
+              }
+              .icon{
+                font-size: 16px;
+                fill: white;
+              }
+            }
+      
+
+          }
+
+          td {
+            outline: 1px solid white;
+            padding-left: 10px;
+            text-align: center;
+            transition: 0.5s ease-in-out;
+          }
+
+          .status {
+            display: block;
+            padding: 4px 12px;
+            border-radius: 24px;
+            font-size: 14px;
+            color: white;
+            width: max-content;
+            margin: 0 auto;
+            white-space: nowrap;
+          }
+
+          .statusOK {
+            background-color: rgba(36, 195, 0, 0.4);
+          }
+
+          .statusDebt {
+            background-color: rgba(255, 56, 56, 0.4);
+
+          }
         }
+      }
+
+      .overflowWhiteBlock {
+        background: rgb(255, 255, 255);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 2;
+        pointer-events: none;
+      }
 
 
 
