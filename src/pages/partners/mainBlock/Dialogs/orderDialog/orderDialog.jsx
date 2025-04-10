@@ -28,6 +28,8 @@ function OrderDialog({ setOrderDialog, setListMenuDialog, setProductsList, produ
         return productsList.reduce((total, item) => total + (item.price * item.peaces), 0);
     };
 
+    const [payValue, setPayValue] = useState("")
+
     return (
         <div className='OrderDialogContainer'>
 
@@ -53,8 +55,12 @@ function OrderDialog({ setOrderDialog, setListMenuDialog, setProductsList, produ
                         className="searchInput"
                         placeholder={t("partners.placeholder4")}
                     />
-
-                    <button onClick={() => setListMenuDialog(prev=>!prev)} className="toggleListMenu">
+                    <input
+                        type="text"
+                        className="searchInput"
+                        placeholder={t("partners.placeholder6")}
+                    />
+                    <button onClick={() => setListMenuDialog(prev => !prev)} className="toggleListMenu">
                         <HiMiniSquares2X2 className="icon" />
                         {t("partners.btn3")}
                     </button>
@@ -116,7 +122,7 @@ function OrderDialog({ setOrderDialog, setListMenuDialog, setProductsList, produ
                     </table>
 
 
-                    
+
 
 
                     <div className="overflowWhiteBlock"></div>
@@ -144,7 +150,21 @@ function OrderDialog({ setOrderDialog, setListMenuDialog, setProductsList, produ
 
                         <div className="actionsCont">
                             <div className="paymentCont">
-                                <input type="text" className="paymentInput" placeholder={t("partners.placeholder5")}/>
+                                <input onChange={(e) => {
+                                    const updatedPeaces = e.target.value;
+                                    let value = parseInt(updatedPeaces, 10) || 0;
+
+
+                                    if (value >= getTotalPrice()) {
+                                        setPayValue(getTotalPrice())
+                                    } else {
+                                        setPayValue(String(value))
+                                    }
+
+                                    if (value === 0) {
+                                        setPayValue("")
+                                    }
+                                }} value={payValue} type="text" className="paymentInput" placeholder={t("partners.placeholder5")} />
                                 <button className="payBtn">{t("partners.btn1")}</button>
                             </div>
                             <div className="actionButtonsCont">

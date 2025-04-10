@@ -8,6 +8,7 @@ import ProductTypes from "./pages/productTypes/productTypes.jsx";
 import {useTranslation} from "react-i18next";
 import ProductTypesMain from "./pages/productTypes/productTypesMain.jsx";
 import Partners from "./pages/partners/partners.jsx";
+import Store from './pages/store/store.jsx';
 
 function App() {
     const {t} = useTranslation()
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/' element={<Home/>} />
                 <Route path='/products' element={<ProductTypesMain/>}/>
                 <Route path='/partners' element={<Partners/>}/>
+                <Route path='/store' element={<Store/>} />
             </Routes>
         </div>
     );
