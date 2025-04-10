@@ -6,12 +6,13 @@ import { HiMiniSquares2X2 } from "react-icons/hi2";
 import { BsTrash3Fill } from "react-icons/bs";
 import OrderDialogListMenu from "../orderDialogListMenu/orderDialogListMenu.jsx";
 import { TestOrderList } from "./testOrderList.js"
-function OrderDialog({ setOrderDialog }) {
+
+
+function OrderDialog({ setOrderDialog, setListMenuDialog, setProductsList, productsList, listMenuDialog }) {
     const { t } = useTranslation();
     const id = 345
 
-    const [listMenuDialog, setListMenuDialog] = useState(false);
-    const [productsList, setProductsList] = useState([]);
+
 
     useEffect(() => {
         setProductsList(TestOrderList)
@@ -30,10 +31,7 @@ function OrderDialog({ setOrderDialog }) {
     return (
         <div className='OrderDialogContainer'>
 
-            {listMenuDialog && <OrderDialogListMenu
-                setListMenuDialog={setListMenuDialog}
-                setProductsList={setProductsList}
-            />}
+
             <div onClick={() => setOrderDialog(false)} className="backgroundBlock"></div>
 
             <div className="OrderDialog G-box-shadow">
@@ -56,7 +54,7 @@ function OrderDialog({ setOrderDialog }) {
                         placeholder={t("partners.placeholder4")}
                     />
 
-                    <button onClick={() => { setListMenuDialog(true) }} className="toggleListMenu">
+                    <button onClick={() => setListMenuDialog(prev=>!prev)} className="toggleListMenu">
                         <HiMiniSquares2X2 className="icon" />
                         {t("partners.btn3")}
                     </button>
@@ -128,7 +126,7 @@ function OrderDialog({ setOrderDialog }) {
                             <div className="prgLine">
                                 <span>{t("partners.prg7")}</span>
                                 <div className="line"></div>
-                                <span>{getTotalPrice().toFixed(2)}</span>
+                                <span className='G-bold'>{getTotalPrice().toFixed(2)}</span>
                             </div>
 
                             <div className="prgLine">
@@ -138,14 +136,21 @@ function OrderDialog({ setOrderDialog }) {
                             </div>
 
                             <div className="prgLine">
-                                <span>{t("partners.prg8")}</span>
+                                <span>{t("partners.prg9")}</span>
                                 <div className="line"></div>
-                                <span>{getTotalPrice().toFixed(2)}</span>
+                                <span >{getTotalPrice().toFixed(2)}</span>
                             </div>
                         </div>
 
                         <div className="actionsCont">
-
+                            <div className="paymentCont">
+                                <input type="text" className="paymentInput" placeholder={t("partners.placeholder5")}/>
+                                <button className="payBtn">{t("partners.btn1")}</button>
+                            </div>
+                            <div className="actionButtonsCont">
+                                <button className="cancelBtn btn">{t("partners.btn4")}</button>
+                                <button className="confirmBtn btn">{t("partners.btn5")}</button>
+                            </div>
                         </div>
                     </div>
                 </div>
