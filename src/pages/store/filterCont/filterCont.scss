@@ -92,10 +92,16 @@
         background-color: white;
         gap: 20px;
 
-        
-
         &:hover {
           filter: brightness(0.9);
+        }
+
+        .selectedSpan{
+          max-width: 150px;
+          display: block;
+          white-space: nowrap;       // Keep the text in one line
+          overflow: hidden;          // Hide the overflowing part
+          text-overflow: ellipsis;
         }
 
         .icon {
@@ -107,10 +113,11 @@
 
       .activeSelect {
         border-color: #8300ff;
-        background-color: white;
+        filter: brightness(1) !important;
 
         .icon {
           transform: rotate(180deg);
+          fill: #8300ff;
         }
       }
 
@@ -128,24 +135,98 @@
 
         .selectItem {
           width: 100%;
-          display: block;
           margin-bottom: 4px;
           padding: 6px 12px;
           border-radius: 6px;
           display: flex;
           align-items: center;
-          gap: 12px;
+          justify-content: space-between;
           font-size: 14px;
           border: none;
           outline: none;
           background-color: white;
-          color: #3D3D3D;
+          flex-direction: column;
           cursor: pointer;
           transition: 0.2s ease-in-out;
 
+
+
           &:hover {
             background-color: #8300ff;
-            color: white;
+
+            .checkboxName{
+              color: white;
+            }
+
+            .folderItem{
+              color: white !important;
+            }
+          }
+
+          .btnHead{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .checkboxName{
+            display: flex;
+            align-items: center;
+            color: #3D3D3D;
+            gap: 12px;
+
+          }
+
+          .menuBlock{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 8px;
+            gap: 4px;
+            margin-left: 20px;
+
+            .folderItem{
+              display: flex;
+              align-items: center;
+              border: none;
+              outline: none;
+              cursor: pointer;
+              background-color: transparent;
+              gap: 12px;
+              transition: 0.2s ease-in-out;
+              padding: 4px;
+              border-radius: 6px;
+              color: #3D3D3D;
+              &:hover{
+                background-color: white;
+                color: #3D3D3D !important;
+              }
+            }
+          }
+
+          .foldersBtn{
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 8px;
+            background-color: white;
+            outline: none;
+            border: none;
+            transition: 0.2s ease-in-out;
+            &:hover{
+              background-color: #5400ae;
+              .icon{
+                fill: white;
+              }
+            }
+
+            .icon{
+              font-size: 20px;
+              transition: 0.2s ease-in-out;
+              fill: #8300ff;
+            }
           }
 
           .checkbox {

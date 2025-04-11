@@ -116,15 +116,20 @@
     "th10": "Total",
     "th11": "Peaces"
 
-
-
   },
   "store": {
     "header1": "Store",
+    "header2": "Create new Partner",
     "btn1": "Outgoing invoice",
     "btn2": "Entry invoice",
+    "btn3": "Cancel",
+    "btn4": "Create",
+    "btn5": "Delete Partner",
+    "btn6": "Edit Partner",
     "placeholder1": "Article, Bar-code...",
     "placeholder2": "Name",
-    "placeholder3": "Select groups"
+    "placeholder3": "Select groups",
+    "placeholder4": "ID",
+    "prg1": "Create partner save the incoming and outgoing invoices with them."
   }
 }
