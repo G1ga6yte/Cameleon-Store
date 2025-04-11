@@ -120,6 +120,11 @@
 
   },
   "store": {
-    "header1": "Store"
+    "header1": "Store",
+    "btn1": "Outgoing invoice",
+    "btn2": "Entry invoice",
+    "placeholder1": "Article, Bar-code...",
+    "placeholder2": "Name",
+    "placeholder3": "Select groups"
   }
 }
