@@ -130,6 +130,16 @@
     "placeholder2": "Name",
     "placeholder3": "Select groups",
     "placeholder4": "ID",
-    "prg1": "Create partner save the incoming and outgoing invoices with them."
+    "prg1": "Create partner save the incoming and outgoing invoices with them.",
+    "prg2": "Total sales amount",
+    "prg3": "Total cost amount",
+    "prg4": "Total profit",
+    "th1": "ID",
+    "th2": "Article",
+    "th3": "Name",
+    "th4":"Selling Price",
+    "th5":"Enter Price",
+    "th6": "Peaces in stock",
+    "th7": "Bar-code"
   }
 }

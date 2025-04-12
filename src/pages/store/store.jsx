@@ -1,12 +1,18 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import "./store.scss";
 import { useCartContext } from "../../CartContext";
 import FilterCont from "./filterCont/filterCont";
 import MainCont from "./mainCont/mainCont";
+import EntryDialog from "./dialogs/entryDialog/entryDialog";
+import OutgoingDialog from "./dialogs/outgoingDialog/outgoingDialog";
 
 
 function Store() {
     const { setActiveNav } = useCartContext()
+
+    const [entryDialog, setEntryDialog] = useState(false)
+    const [outgoingDialog, setOutgoingDialog] = useState(false)
+
     useEffect(() => {
         setActiveNav("store")
     }, []);
@@ -14,8 +20,25 @@ function Store() {
 
     return (
         <div className="storeContainer G-box-shadow">
-            <FilterCont/>
-            <MainCont/>
+
+            {entryDialog &&
+                <EntryDialog
+                    setEntryDialog={setEntryDialog}
+                />
+            }
+
+            {outgoingDialog &&
+                <OutgoingDialog
+                    setOutgoingDialog={setOutgoingDialog}
+                />
+            }
+
+
+            <FilterCont
+                setEntryDialog={setEntryDialog}
+                setOutgoingDialog={setOutgoingDialog}
+            />
+            <MainCont />
         </div>
     )
 }
