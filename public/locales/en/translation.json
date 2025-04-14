@@ -120,6 +120,7 @@
   "store": {
     "header1": "Store",
     "header2": "Create new Partner",
+    "header3": "New Invoice",
     "btn1": "Outgoing invoice",
     "btn2": "Entry invoice",
     "btn3": "Cancel",

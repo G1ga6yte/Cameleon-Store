@@ -19,12 +19,401 @@
         background-color: rgba(0, 0, 0, 0.2);   
     }
 
-    .dialogBlock{
-        width: 1200px;
-        height: 95%;
-        border-radius: 16px;
-        background-color: white;
+    .OrderDialog {
         position: relative;
         z-index: 2;
-    }
+        width: 1200px;
+        margin: 0 auto;
+        height: 95%;
+        background-color: white;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    
+        .headLine {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 24px 16px 40px;
+    
+    
+          .header {
+            font-size: 20px;
+            color: #3D3D3D;
+            width: 100%;
+            text-align: start !important;
+            font-weight: 500;
+          }
+    
+          .closeBtn {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            background-color: #e3e3e3;
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+    
+            &:hover {
+              filter: brightness(1.1);
+            }
+    
+            .icon {
+              font-size: 20px;
+            }
+          }
+    
+        }
+    
+        .inputsContainer {
+          display: flex;
+          align-items: center;
+          padding: 16px 32px;
+          gap: 16px;
+          border-bottom: 1px solid #e3e3e3;
+    
+          .searchInput {
+            padding: 8px 24px;
+            min-width: 25%;
+            border-radius: 8px;
+            border: 1px solid #e3e3e3;
+            outline: none;
+            transition: 0.2s ease-in-out;
+            font-size: 14px;
+            &:focus-visible{
+              border-color: #8300ff;
+            }
+          }
+    
+          .toggleListMenu {
+            padding: 8px 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #8300ff;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            transition: 0.2s ease-in-out;
+    
+            &:hover {
+              filter: brightness(0.9);
+            }
+    
+            .icon {
+              font-size: 16px;
+            }
+          }
+        }
+    
+        .ListContainer {
+          flex-grow: 1;
+          width: 100%;
+          overflow: auto;
+          height: 100%;
+    
+    
+    
+          .table {
+            width: 100%;
+            overflow: auto;
+            position: relative;
+            padding-bottom: 150px;
+    
+            .checkboxTH {
+              width: 60px;
+              padding: 0 !important;
+    
+              .checkbox {
+                margin: 2px auto;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #dadada;
+                border-radius: 6px;
+                background-color: white;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+    
+                &:hover {
+                  border-color: #777777;
+                  filter: brightness(1.1);
+                }
+              }
+    
+    
+              .checked {
+                background-color: #8300ff;
+              }
+            }
+    
+            .tableHead {
+              width: 100%;
+              background-color: #e3e3e3;
+              position: sticky;
+              top: 0;
+              z-index: 5;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+              tr {
+                background-color: #e3e3e3;
+    
+                th {
+                  outline: 2px solid #e3e3e3;
+                  background-color: #e3e3e3;
+                  font-weight: 400;
+                  font-size: 14px;
+                  padding: 2px;
+                  color: #686868;
+                }
+              }
+            }
+    
+            .tableBody {
+              width: 100%;
+              background-color: white;
+    
+              tr {
+                height: 60px;
+                color: #3D3D3D;
+                transition: 0.5s ease-in-out;
+                cursor: pointer;
+    
+                &:hover {
+                  background-color: #e3e3e3;
+                  transition: 0.1s ease-in-out !important;
+    
+                  td {
+                    outline: 1px solid #e3e3e3;
+                    transition: 0.1s ease-in-out !important;
+                  }
+                }
+    
+                .indexTD {
+                  width: 50px;
+                  text-align: center;
+                }
+    
+                .peacesInput {
+                  max-width: 100px;
+                  text-align: center;
+                  padding: 12px;
+                  font-size: 15px;
+                  color: #3D3D3D;
+                  background-color: transparent;
+                  border: none;
+                  outline: none;
+                  border-bottom: 2px solid #f1f1f1;
+                  &:focus-visible{
+                    border-color: #777777;
+                  }
+                }
+    
+                .totalTD {
+                  width: 150px;
+                }
+    
+                .removeBtn {
+                  width: 50px;
+                  padding: 8px;
+                  cursor: pointer;
+                  background-color: #8300ff;
+                  border: none;
+                  outline: none;
+                  border-radius: 8px;
+                  transition: 0.2s ease-in-out;
+    
+                  &:hover {
+                    filter: brightness(0.9);
+                  }
+    
+                  .icon {
+                    font-size: 16px;
+                    fill: white;
+                  }
+                }
+    
+    
+              }
+    
+              td {
+                outline: 1px solid white;
+                padding-left: 10px;
+                text-align: center;
+                transition: 0.5s ease-in-out;
+              }
+    
+              .status {
+                display: block;
+                padding: 4px 12px;
+                border-radius: 24px;
+                font-size: 14px;
+                color: white;
+                width: max-content;
+                margin: 0 auto;
+                white-space: nowrap;
+              }
+    
+              .statusOK {
+                background-color: rgba(36, 195, 0, 0.4);
+              }
+    
+              .statusDebt {
+                background-color: rgba(255, 56, 56, 0.4);
+    
+              }
+            }
+          }
+    
+          .totalCont {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 3;
+            background-color: white;
+            width: 100%;
+            border-top: 1px solid #dadada;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 16px 32px;
+            align-items: center;
+            gap: 40px;
+    
+    
+            .infoCont {
+              width: 60%;
+    
+              .prgLine {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                &:nth-child(1) {
+                  margin-bottom: 10px;
+                }
+    
+                span {
+                  font-size: 16px;
+    
+                }
+    
+                .line{
+                  flex-grow: 1;
+                  border: 1px dashed #e3e3e3;
+                }
+    
+                .G-bold {
+                  font-weight: 700;
+                }
+              }
+            }
+    
+            .actionsCont{
+              flex-grow: 1;
+              .paymentCont{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 16px;
+    
+                .paymentInput{
+                  width: 80%;
+                  padding: 10px 16px;
+                  border-radius: 8px;
+                  border: 1px solid #e3e3e3;
+                  outline: none;
+                  background-color: white;
+                  font-size: 15px;
+                  transition: 0.2s ease-in-out;
+                  &:focus-visible{
+                    border-color: #8300ff;
+                  }
+                }
+    
+                .payBtn{
+                  padding: 10px 16px;
+                  border-radius: 8px;
+                  background-color: #8300ff;
+                  color: white;
+                  font-size: 15px;
+                  flex-grow: 1;
+                  outline: none;
+                  border: none;
+                  transition: 0.2s ease-in-out;
+                  cursor: pointer;
+                  &:hover{
+                    filter: brightness(0.9);
+                  }
+                }
+    
+    
+              }
+    
+              .actionButtonsCont{
+                display: flex;
+                gap: 16px;
+    
+                .btn{
+                  width: 50%;
+                  padding: 10px 16px;
+                  text-align: center;
+                  border-radius: 8px;
+                  font-size: 15px;
+                  cursor: pointer;
+                  transition: 0.2s ease-in-out;
+                  &:hover{
+                    filter: brightness(0.9);
+                  }
+                }
+    
+                .confirmBtn{
+                  border: 1px solid #8300ff;
+                  background-color: #8300ff;
+                  color: white;
+                }
+    
+                .cancelBtn{
+                  border: 1px solid #dadada;
+                  background-color: #f1f1f1;
+                  color: #777777;
+    
+                }
+    
+              }
+            }
+    
+          }
+    
+    
+          .overflowWhiteBlock {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 2;
+            pointer-events: none;
+          }
+    
+    
+        }
+    
+    
+      }
+
+
+
 }
