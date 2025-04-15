@@ -84,6 +84,7 @@
     "header1": "Partners",
     "header2": "Filters",
     "header3": "New Order",
+    "header4": "Groups",
     "placeholder1": "From",
     "placeholder2": "To",
     "placeholder3": "Article, Bar-Code...",
@@ -104,6 +105,7 @@
     "btn3": "Products List",
     "btn4": "Cancel",
     "btn5": "Confirm",
+    "btn6": "All",
     "th1": "ID",
     "th2": "Date",
     "th3": "Note",
@@ -115,6 +117,7 @@
     "th9": "Price",
     "th10": "Total",
     "th11": "Peaces"
+
 
   },
   "store": {
