@@ -9,6 +9,7 @@ import { TestOrderList } from "../../../../TestData/testOrderList.js"
 function EntryDialog({ setEntryDialog }) {
     const { t } = useTranslation()
     const [productsList, setProductsList] = useState([]);
+    const [listMenuDialog ,setListMenuDialog] = useState(false)
     const id = 345
 
 
@@ -24,7 +25,7 @@ function EntryDialog({ setEntryDialog }) {
     };
 
     const getTotalPrice = () => {
-        return productsList.reduce((total, item) => total + (item.price * item.peaces), 0);
+        return productsList.reduce((total, item) => total + (item.enterPrice * item.peaces), 0);
     };
 
     const [payValue, setPayValue] = useState("")
@@ -72,7 +73,7 @@ function EntryDialog({ setEntryDialog }) {
                                 <th>#{t("partners.th7")}</th>
                                 <th>#{t("partners.th8")}</th>
 
-                                <th>#{t("partners.th9")}</th>
+                                <th>#{t("store.th5")}</th>
                                 <th>#{t("partners.th11")}</th>
                                 <th>#{t("partners.th10")}</th>
                                 <th></th>
@@ -90,7 +91,7 @@ function EntryDialog({ setEntryDialog }) {
                                         <td>{item._id}</td>
                                         <td>{item.article}</td>
                                         <td>{item.name}</td>
-                                        <td>{item.price}.00</td>
+                                        <td>{item.enterPrice}.00</td>
                                         <td>
                                             <input
                                                 type="text"
@@ -104,7 +105,7 @@ function EntryDialog({ setEntryDialog }) {
                                                 }}
                                             />
                                         </td>
-                                        <td className="totalTD">{item.price * item.peaces}.00</td>
+                                        <td className="totalTD">{item.enterPrice * item.peaces}.00</td>
                                         <td>
                                             <button className="removeBtn" onClick={() => removeProduct(index)}>
                                                 <BsTrash3Fill className="icon" />
@@ -150,13 +151,7 @@ function EntryDialog({ setEntryDialog }) {
                                 <input onChange={(e) => {
                                     const updatedPeaces = e.target.value;
                                     let value = parseInt(updatedPeaces, 10) || 0;
-
-
-                                    if (value >= getTotalPrice()) {
-                                        setPayValue(getTotalPrice())
-                                    } else {
-                                        setPayValue(String(value))
-                                    }
+                                    setPayValue(String(value))
 
                                     if (value === 0) {
                                         setPayValue("")

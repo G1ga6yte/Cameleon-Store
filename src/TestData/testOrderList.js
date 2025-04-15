@@ -3,6 +3,7 @@ export const TestOrderList = [
         _id: "84629464262",
         article: "587090",
         name: "Plastic Primer 500",
+        enterPrice: 3000,
         price: 4000,
         peaces: 1
     },
@@ -10,6 +11,7 @@ export const TestOrderList = [
         _id: "84629464263",
         article: "587091",
         name: "Metallic Spray Paint",
+        enterPrice: 2000,
         price: 2500,
         peaces: 2
     },
@@ -17,6 +19,7 @@ export const TestOrderList = [
         _id: "84629464264",
         article: "587092",
         name: "Wooden Sealant 200",
+        enterPrice: 1000,
         price: 1500,
         peaces: 5
     },
@@ -24,6 +27,7 @@ export const TestOrderList = [
         _id: "84629464265",
         article: "587093",
         name: "Acrylic Paint Set",
+        enterPrice: 2000,
         price: 3200,
         peaces: 3
     },
@@ -31,6 +35,7 @@ export const TestOrderList = [
         _id: "84629464266",
         article: "587094",
         name: "Car Tire Cleaner",
+        enterPrice: 1500,
         price: 1800,
         peaces: 4
     },
