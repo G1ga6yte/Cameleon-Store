@@ -158,7 +158,7 @@ function OrderDialogListMenu({ setListMenuDialog }) {
                         </table>
                     </div>
 
-                    <div className="pagination">
+                    <div className="paginationCont">
 
                         <Stack spacing={2}>
                             <Pagination
@@ -171,6 +171,8 @@ function OrderDialogListMenu({ setListMenuDialog }) {
 
 
                         <div className="actionButtons">
+                            <button className="btn cancelBtn">{t("partners.btn4")}</button>
+                            <button className="btn addBtn">{t("partners.btn7")}</button>
                         </div>
 
                     </div>

@@ -229,7 +229,7 @@
 
       }
 
-      .pagination{
+      .paginationCont{
         background-color: white;
         width: 100%;
         left: 0;
@@ -243,6 +243,29 @@
         .Mui-selected{
           background-color: #8300ff !important;
           color: white !important;
+        }
+
+        .actionButtons{
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .btn{
+            padding: 8px;
+            border: 1px solid;
+            outline: none;
+            border-radius: 8px;
+            transition: 0.2s ease-in-out;
+            font-size: 14px;
+            cursor: pointer;
+          }
+
+          .cancelBtn{
+            background-color: #e3e3e3;
+            border-color: #dadada;
+            color: #dadada;
+            
+          }
         }
       }
     }
