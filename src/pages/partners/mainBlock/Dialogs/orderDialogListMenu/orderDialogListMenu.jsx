@@ -171,7 +171,9 @@ function OrderDialogListMenu({ setListMenuDialog }) {
 
 
                         <div className="actionButtons">
-                            <button className="btn cancelBtn">{t("partners.btn4")}</button>
+                            <button onClick={()=>{
+                                setListMenuDialog(false)
+                            }} className="btn cancelBtn">{t("partners.btn4")}</button>
                             <button className="btn addBtn">{t("partners.btn7")}</button>
                         </div>
 

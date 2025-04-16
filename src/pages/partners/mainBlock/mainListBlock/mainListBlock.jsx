@@ -1276,7 +1276,8 @@ function MainListBlock ({}){
                     count: 5
                 }
             ]
-        }
+        },
+
 
     ]
 
