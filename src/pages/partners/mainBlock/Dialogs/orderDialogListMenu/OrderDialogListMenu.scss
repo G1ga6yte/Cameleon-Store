@@ -194,7 +194,7 @@
                 background-color: #e3e3e3;
                 font-weight: 400;
                 font-size: 14px;
-                padding: 4px;
+                padding: 8px 4px;
                 color: #686868;
                 text-align: center;
               }
@@ -238,7 +238,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px;
+        padding: 16px;
 
         .Mui-selected{
           background-color: #8300ff !important;
@@ -251,20 +251,28 @@
           gap: 20px;
 
           .btn{
-            padding: 8px;
+            padding: 8px 16px;
             border: 1px solid;
             outline: none;
             border-radius: 8px;
             transition: 0.2s ease-in-out;
             font-size: 14px;
             cursor: pointer;
+            min-width: 120px;
+            &:hover{
+              filter: brightness(0.9);
+            }
           }
 
           .cancelBtn{
             background-color: #e3e3e3;
             border-color: #dadada;
-            color: #dadada;
-            
+            color: #777777;
+          }
+          .addBtn{
+            background-color: #8300ff;
+            border-color: #8300ff;
+            color: white;
           }
         }
       }
