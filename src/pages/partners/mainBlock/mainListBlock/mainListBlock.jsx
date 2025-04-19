@@ -1276,8 +1276,7 @@ function MainListBlock ({}){
                     count: 5
                 }
             ]
-        },
-
+        }
 
     ]
 
@@ -1299,7 +1298,7 @@ function MainListBlock ({}){
 
     return(
         <div className="mainListBlock">
-            <div className="ProductsList">
+            <div className="ProductsList G-scrollbar-style">
                 <table className="table">
                     <thead className="tableHead">
                     <tr className="tableHeadRow">
@@ -1313,10 +1312,6 @@ function MainListBlock ({}){
                     </tr>
                     </thead>
                     <tbody className="tableBody">
-
-                    <div style={{
-                        transform: "translateY(-30px)"
-                    }}></div>
 
                     {ordersList.map((item, index) => {
 

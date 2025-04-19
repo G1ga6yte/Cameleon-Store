@@ -147,5 +147,12 @@
     "th5":"Enter Price",
     "th6": "Peaces in stock",
     "th7": "Bar-code"
+  },
+  "static": {
+    "header1": "Products reports",
+    "header2": "Partners reports",
+    "header3": "Store reports",
+    "header4": "Sales reports",
+
   }
 }

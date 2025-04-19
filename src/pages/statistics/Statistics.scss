@@ -1,0 +1,44 @@
+.StatisticsContainer{
+  flex-grow: 1;
+  height: 100%;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+
+  .headLine{
+    width: 100%;
+    border-bottom: 1px solid #e3e3e3;
+
+    .backLink{
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 20px;
+      color: #3D3D3D;
+      text-align: start !important;
+      font-weight: 500;
+      background-color: white;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      &:hover{
+        .icon{
+          fill: #777777;
+        }
+      }
+
+      .icon{
+        transition: 0.2s ease-in-out;
+        font-size: 32px;
+        fill: #c8c8c8;
+      }
+
+    }
+  }
+
+}
