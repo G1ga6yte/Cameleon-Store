@@ -5,6 +5,8 @@ import { IoClose } from "react-icons/io5";
 import { HiMiniSquares2X2 } from "react-icons/hi2";
 import { BsTrash3Fill } from "react-icons/bs";
 import { TestOrderList } from "../../../../TestData/testOrderList.js"
+import ProductsListDialog from "../productsListDialog/productsListDialog.jsx";
+import {FaCode} from "react-icons/fa6";
 
 function EntryDialog({ setEntryDialog }) {
     const { t } = useTranslation()
@@ -30,8 +32,61 @@ function EntryDialog({ setEntryDialog }) {
 
     const [payValue, setPayValue] = useState("")
 
+
+
+    /////////////// Code Dialog ////////////////////
+    const [codeDialog, setCodeDialog] = useState(false)
+    const [textAreaValue, setTextAreaValue] = useState("")
+
+    const addProductsByCode = (code) => {
+
+        const parsedProducts = JSON.parse(code);
+
+        // Validate that it's an array
+        if (!Array.isArray(parsedProducts)) {
+            throw new Error('Input must be a valid JSON array');
+        }else {
+            setProductsList(parsedProducts);
+            setCodeDialog(false)
+        }
+
+        // Optionally validate each item has required fields
+        parsedProducts.forEach(product => {
+            if (!product._id || !product.name || !product.price) {
+                throw new Error('Each product must have _id, name, and price fields');
+            }
+        });
+
+    }
+
     return (
         <div className="entryDialogCont">
+
+            {listMenuDialog && <ProductsListDialog
+                setListMenuDialog={setListMenuDialog}
+            />}
+
+            {
+                codeDialog &&
+                <div className="codeDialog">
+                    <div onClick={() => setCodeDialog(false)}  className="backgroundBlock"></div>
+
+                    <div className="codeDialogCont">
+                        <p className="header">{t("partners.header5")}</p>
+                        <textarea value={textAreaValue} onChange={(e)=>{
+                            setTextAreaValue(e.target.value);
+                        }} className="textarea G-scrollbar-style" name="codeInput" id="codeInput" cols="30" rows="10"></textarea>
+                        <div className="buttonsCont">
+                            <button onClick={()=>setCodeDialog(false)} className="btn cancelBtn">{t("partners.btn4")}</button>
+                            <button onClick={()=>{
+                                addProductsByCode(textAreaValue)
+                            }} className="btn confirmBtn">{t("partners.btn5")}</button>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
             <div onClick={() => setEntryDialog(false)} className="backgroundBlock"></div>
 
             <div className="OrderDialog G-box-shadow">
@@ -61,6 +116,10 @@ function EntryDialog({ setEntryDialog }) {
                     <button onClick={() => setListMenuDialog(prev => !prev)} className="toggleListMenu">
                         <HiMiniSquares2X2 className="icon" />
                         {t("partners.btn3")}
+                    </button>
+
+                    <button onClick={()=>setCodeDialog(true)} className="codeDialogBtn">
+                        <FaCode className="icon"/>
                     </button>
                 </div>
 
@@ -160,7 +219,7 @@ function EntryDialog({ setEntryDialog }) {
                                 <button className="payBtn">{t("partners.btn1")}</button>
                             </div>
                             <div className="actionButtonsCont">
-                                <button className="cancelBtn btn">{t("partners.btn4")}</button>
+                                <button onClick={()=>setEntryDialog(false)} className="cancelBtn btn">{t("partners.btn4")}</button>
                                 <button className="confirmBtn btn">{t("partners.btn5")}</button>
                             </div>
                         </div>

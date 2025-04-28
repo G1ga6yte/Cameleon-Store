@@ -1,4 +1,4 @@
-.NewPartnerDialogContainer{
+.DeletePartnersDialogCont{
   position: fixed;
   top: 0;
   left: 0;
@@ -37,11 +37,11 @@
       justify-content: center;
       padding: 16px;
       border-radius: 50%;
-      background-color: rgba(131, 0, 255, 0.2);
+      background-color: rgba(227, 0, 0, 0.2);
       margin-bottom: 12px;
       .icon{
         font-size: 64px;
-        fill: #8300ff;
+        fill: #e30000;
 
       }
     }
@@ -51,5 +51,9 @@
       font-size: 26px;
     }
 
+  }
+
+  .renameBtn{
+    background-color: #e30000 !important;
   }
 }

@@ -78,7 +78,7 @@
     
           .searchInput {
             padding: 8px 24px;
-            min-width: 25%;
+            min-width: 23%;
             border-radius: 8px;
             border: 1px solid #e3e3e3;
             outline: none;
@@ -110,6 +110,29 @@
             .icon {
               font-size: 16px;
             }
+          }
+
+          .codeDialogBtn{
+            padding: 6px 16px;
+            display: flex;
+            align-items: center;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #8300ff;
+            border-radius: 8px;
+            transition: 0.2s ease-in-out;
+
+
+            &:hover {
+              filter: brightness(0.9);
+            }
+
+            .icon{
+              font-size: 20px;
+              fill: white;
+            }
+
           }
         }
     
@@ -413,6 +436,89 @@
     
     
       }
+
+  .codeDialog{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .header{
+      font-size: 20px;
+      color: #3D3D3D;
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .codeDialogCont{
+      min-width: 400px;
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+      border-radius: 16px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .textarea{
+        padding: 8px 12px;
+        overflow: auto;
+        width: 100%;
+        resize: none;
+        margin: 16px 0;
+        border-radius: 8px;
+        border: 1px solid #dadada;
+        outline: none;
+        transition: 0.2s ease-in-out;
+        font-size: 14px;
+        &:focus-visible{
+          border-color: #8300ff;
+        }
+      }
+
+      .buttonsCont{
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+
+        .btn{
+          width: 50%;
+          padding: 10px 16px;
+          text-align: center;
+          border-radius: 8px;
+          font-size: 15px;
+          cursor: pointer;
+          transition: 0.2s ease-in-out;
+          &:hover{
+            filter: brightness(0.9);
+          }
+        }
+
+        .confirmBtn{
+          border: 1px solid #8300ff;
+          background-color: #8300ff;
+          color: white;
+        }
+
+        .cancelBtn{
+          border: 1px solid #dadada;
+          background-color: #f1f1f1;
+          color: #777777;
+
+        }
+
+      }
+    }
+  }
 
 
 

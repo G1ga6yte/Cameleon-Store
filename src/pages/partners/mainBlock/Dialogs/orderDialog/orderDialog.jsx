@@ -15,7 +15,7 @@ function OrderDialog({ setOrderDialog, setListMenuDialog, setProductsList, produ
 
 
     useEffect(() => {
-        // setProductsList(TestOrderList)
+        setProductsList(TestOrderList)
     }, [])
 
 

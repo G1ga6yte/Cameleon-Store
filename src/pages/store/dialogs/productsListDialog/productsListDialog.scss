@@ -1,0 +1,287 @@
+.OrderDialogListMenuContainer{
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .backgroundBlock{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .menuContainer{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    height: 90vh;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+
+    .groupsCont{
+      width: 250px;
+      border-right: 1px solid #e3e3e3;
+      height: 100%;
+      overflow: auto;
+      position: relative;
+      padding-bottom: 50px;
+
+      .headBlock{
+        position: sticky;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        width: 100%;
+        padding: 24px 12px 16px;
+        background-color: white;
+        border-bottom: 1px solid #e3e3e3;
+        margin-bottom: 10px;
+
+        .header {
+          font-size: 20px;
+          color: #3D3D3D;
+          width: 100%;
+          text-align: start !important;
+          font-weight: 500;
+        }
+
+      }
+
+      .groupCont{
+        width: 100%;
+        padding: 2px 4px;
+
+        .groupBtn{
+          width: 100%;
+          padding: 12px 16px;
+          margin-bottom: 4px;
+          border-radius: 8px;
+          font-size: 15px;
+          color: #3D3D3D;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: 0.2s ease-in-out;
+          &:hover{
+            filter: brightness(0.9);
+          }
+          .icon{
+            transition: 0.2s ease-in-out;
+          }
+        }
+        .activeGroupBtn{
+          color: white;
+          background-color: #8300ff;
+          .icon{
+            fill: white;
+          }
+        }
+        .openGroupBtn{
+          .icon{
+            transform: rotate(90deg);
+          }
+        }
+
+        .inGroupBtn{
+          width: 90%;
+          margin-left: 10%;
+          margin-bottom: 4px;
+          border-radius: 8px;
+          padding: 8px 16px;
+          font-size: 14px;
+          color: #3D3D3D;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: 0.2s ease-in-out;
+          &:hover{
+            filter: brightness(0.9);
+          }
+          .icon{
+            transition: 0.2s ease-in-out;
+          }
+        }
+        .activeGroupBtn{
+          color: white;
+          background-color: #8300ff;
+          .icon{
+            fill: white;
+          }
+        }
+      }
+
+    }
+
+    .productsCont{
+      flex-grow: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .productsList{
+        width: 100%;
+        flex-grow: 1;
+        overflow: auto;
+        position: relative;
+        z-index: 1;
+        .table{
+          width: 100%;
+          overflow: auto;
+          position: relative;
+          padding-bottom: 50px;
+          z-index: 5;
+          .checkboxTH{
+            width: 40px;
+            padding: 0 !important;
+
+            .checkbox{
+              margin: 2px auto;
+              width: 20px;
+              height: 20px;
+              border: 1px solid #dadada;
+              border-radius: 6px;
+              background-color: white;
+              cursor: pointer;
+              transition: 0.2s ease-in-out;
+              color: white;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 14px;
+              &:hover{
+                border-color: #777777;
+                filter: brightness(1.1);
+              }
+            }
+
+
+            .checked{
+              background-color: #8300ff;
+            }
+          }
+
+
+          .tableHead{
+            width: calc(100% + 12px);
+            background-color: #e3e3e3;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+            tr{
+              background-color: #e3e3e3;
+              th{
+                outline: 2px solid #e3e3e3;
+                background-color: #e3e3e3;
+                font-weight: 400;
+                font-size: 14px;
+                padding: 8px 4px;
+                color: #686868;
+                text-align: center;
+              }
+            }
+          }
+
+          .tableBody{
+            width: 100%;
+            background-color: white;
+            tr{
+              height: 60px;
+              color: #3D3D3D;
+              transition: 0.5s ease-in-out;
+              cursor: pointer;
+              &:hover{
+                background-color: #e3e3e3;
+                transition: 0.1s ease-in-out !important;
+                td{
+                  outline: 1px solid #e3e3e3;
+                  transition: 0.1s ease-in-out !important;
+                }
+              }
+            }
+            td{
+              outline: 1px solid white;
+              padding-left: 10px;
+              text-align: center;
+              transition: 0.5s ease-in-out;
+            }
+          }
+        }
+
+      }
+
+      .paginationCont{
+        background-color: white;
+        width: 100%;
+        left: 0;
+        z-index: 6;
+        border-top: 1px solid #e3e3e3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+
+        .Mui-selected{
+          background-color: #8300ff !important;
+          color: white !important;
+        }
+
+        .actionButtons{
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .btn{
+            padding: 8px 16px;
+            border: 1px solid;
+            outline: none;
+            border-radius: 8px;
+            transition: 0.2s ease-in-out;
+            font-size: 14px;
+            cursor: pointer;
+            min-width: 120px;
+            &:hover{
+              filter: brightness(0.9);
+            }
+          }
+
+          .cancelBtn{
+            background-color: #e3e3e3;
+            border-color: #dadada;
+            color: #777777;
+          }
+          .addBtn{
+            background-color: #8300ff;
+            border-color: #8300ff;
+            color: white;
+          }
+        }
+      }
+    }
+
+
+
+  }
+
+
+
+}

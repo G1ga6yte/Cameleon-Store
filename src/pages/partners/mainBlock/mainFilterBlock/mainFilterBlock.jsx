@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./mainFilterBlock.scss";
 import { useTranslation } from "react-i18next";
 import { Calendar } from "primereact/calendar";
+import PayDialog from "./payDialog/payDialog.jsx";
 
 
 function MainFilterBlock({setNewOrderDialog}) {
@@ -10,6 +11,8 @@ function MainFilterBlock({setNewOrderDialog}) {
     monthAgo.setMonth(monthAgo.getMonth() - 1);
     const [selectedDate1, setSelectedDate1] = useState(monthAgo); // Initial date, can be changed
     const [selectedDate2, setSelectedDate2] = useState(new Date()); // Initial date, can be changed
+
+    const [payDialog, setPayDialog] = useState(false)
 
     const handleDateChange1 = (date) => {
         setSelectedDate1(date); // Update selected date
@@ -23,6 +26,13 @@ function MainFilterBlock({setNewOrderDialog}) {
 
     return (
         <div className="mainFilterBlock">
+
+            {payDialog &&
+                <PayDialog
+                   setPayDialog={setPayDialog}
+                />
+            }
+
             <div className="headLine">
                 <p className="header">{t("partners.header2")}</p>
                 <div className="calendarCont p-calendar-w-btn">
@@ -78,7 +88,7 @@ function MainFilterBlock({setNewOrderDialog}) {
                 <p className="infoLine">
                     <span className="miniHeader">{t("partners.prg4")}:</span>
                     <span >60000.00</span>
-                    <button className="debtBtn">{t("partners.btn1")}</button>
+                    <button onClick={()=>setPayDialog(true)} className="debtBtn">{t("partners.btn1")}</button>
                 </p>
             </div>
         </div>

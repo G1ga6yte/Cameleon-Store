@@ -9,6 +9,8 @@ import NewPartnerDialog from "./newPartnerDialog/newPartnerDialog.jsx";
 import {RiDeleteBack2Fill} from "react-icons/ri";
 import {TbReplaceFilled} from "react-icons/tb";
 import {TestProductGroups} from "../../../TestData/testProductGroups.js";
+import EditPartnerDialog from "./editPartnerDialog/editPartnerDialog.jsx";
+import DeletePartnerDialog from "./deletePartnerDialog/deletePartnerDialog.jsx";
 
 function PartnersBlock (){
     const {t} = useTranslation()
@@ -36,6 +38,8 @@ function PartnersBlock (){
     ]
     const [activePartner, setActivePartner] = useState(null)
     const [newPartnerDialog, setNewPartnerDialog] = useState(false)
+    const [editPartnerDialog, setEditPartnerDialog] = useState(false)
+    const [deletePartnerDialog, setDeletePartnerDialog] = useState(false)
     useEffect(() => {
         setActivePartner(usersList[0].id)
     }, []);
@@ -76,6 +80,20 @@ function PartnersBlock (){
                 />
             }
 
+            {editPartnerDialog &&
+                <EditPartnerDialog
+                    actionPartner={actionPartner}
+                    setEditPartnerDialog={setEditPartnerDialog}
+                />
+            }
+
+            {deletePartnerDialog &&
+                <DeletePartnerDialog
+                    actionPartner={actionPartner}
+                    setDeletePartnerDialog={setDeletePartnerDialog}
+                />
+            }
+
             {menuOpen && (<div ref={menuRef}
                                style={{
                                    position: "fixed",
@@ -84,8 +102,8 @@ function PartnersBlock (){
                                }}
                                className="G-context-menu G-box-shadow"
             >
-                <button onClick={()=>{}} className="context-button"><RiDeleteBack2Fill className="icon" fill="red"/>{t("store.btn5")}</button>
-                <button onClick={()=>{}} className="context-button"><MdDriveFileRenameOutline className="icon" fill="#25cc00"/>{t("store.btn6")}</button>
+                <button onClick={()=>setDeletePartnerDialog(true)} className="context-button"><RiDeleteBack2Fill className="icon" fill="red"/>{t("store.btn5")}</button>
+                <button onClick={()=>setEditPartnerDialog(true)} className="context-button"><MdDriveFileRenameOutline className="icon" fill="#25cc00"/>{t("store.btn6")}</button>
 
             </div>)}
 
