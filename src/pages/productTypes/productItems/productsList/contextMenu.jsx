@@ -1,10 +1,12 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {RiDeleteBack2Fill} from "react-icons/ri";
 import {MdDriveFileRenameOutline} from "react-icons/md";
 import {HiDuplicate} from "react-icons/hi";
 import {TbReplaceFilled} from "react-icons/tb";
 import {useTranslation} from "react-i18next";
-import DeleteModal from "../../productGroups/components/deleteModal.jsx";
+import DeleteModal from "./contextDialogs/deleteModal.jsx";
+import ReplaceModal from "./contextDialogs/replaceModal.jsx";
+
 
 function ContextMenuItems ({menuOpen, setMenuOpen, menuPosition, actionItem}) {
     const {t} = useTranslation()
@@ -24,8 +26,14 @@ function ContextMenuItems ({menuOpen, setMenuOpen, menuPosition, actionItem}) {
         };
     }, []);
 
+    const [deleteModal, setDeleteModal] = useState(false)
+    const [editModal, setEditModal] = useState(false)
+    const [duplicateModal, setDuplicateModal] = useState(false)
+    const [replaceModal, setReplaceModal] = useState(false)
 
-    return menuOpen && (<div ref={menuRef}
+
+
+    return menuOpen && (<div  ref={menuRef}
                               style={{
                                   position: "fixed",
                                   top: `${menuPosition.y}px`,
@@ -34,10 +42,22 @@ function ContextMenuItems ({menuOpen, setMenuOpen, menuPosition, actionItem}) {
                               className="G-context-menu G-box-shadow"
     >
 
-        <button className="context-button"><RiDeleteBack2Fill className="icon" fill="red"/>{t("products.btn10")}</button>
-        <button className="context-button"><MdDriveFileRenameOutline className="icon" fill="#25cc00"/>{t("products.btn11")}</button>
-        <button className="context-button"><HiDuplicate className="icon" fill="#0096cc"/>{t("products.btn12")}</button>
-        <button className="context-button"><TbReplaceFilled className="icon" fill="#0096cc"/>{t("products.btn13")}</button>
+        {deleteModal &&
+            <DeleteModal actionItem={actionItem} setDeleteModal={setDeleteModal}/>
+        }
+
+        {replaceModal &&
+            <ReplaceModal
+                actionItem={actionItem}
+                setReplaceModal={setReplaceModal}
+            />
+        }
+
+
+        <button onClick={()=>setDeleteModal(true)} className="context-button"><RiDeleteBack2Fill className="icon" fill="red"/>{t("products.btn10")}</button>
+        <button onClick={()=>setEditModal(true)} className="context-button"><MdDriveFileRenameOutline className="icon" fill="#25cc00"/>{t("products.btn11")}</button>
+        <button onClick={()=>setDuplicateModal(true)} className="context-button"><HiDuplicate className="icon" fill="#0096cc"/>{t("products.btn12")}</button>
+        <button onClick={()=>setReplaceModal(true)} className="context-button"><TbReplaceFilled className="icon" fill="#0096cc"/>{t("products.btn13")}</button>
     </div>)
 }
 

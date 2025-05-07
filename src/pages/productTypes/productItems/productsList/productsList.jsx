@@ -99,7 +99,7 @@ function ProductsList() {
                     }} ref={containerRef}></div>
 
                     {fetchedData[activePage].map((item, index) => (
-                        <tr onContextMenu={(e) => handleContextMenu(e, item._id)}
+                        <tr onContextMenu={(e) => handleContextMenu(e, item)}
                             className="tableRow" key={index}>
 
                             <td className="checkboxTH">
