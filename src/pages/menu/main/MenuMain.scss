@@ -1,0 +1,49 @@
+.MenuMain{
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+  row-gap: 24px;
+  box-sizing: border-box;
+  padding: 1.5%;
+
+
+  .section{
+    text-decoration: none;
+    height: 200px;
+    width: 24%;
+    border-radius: 16px;
+    transition: 0.2s ease-in-out;
+    color: #3D3D3D;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 500;
+
+    &:hover{
+      box-shadow: rgba(131, 0, 255, 0.16) 0 10px 36px 0, rgba(131, 0, 255, 0.06) 0 0 0 1px;
+
+      .prg{
+        color: #8300ff;
+      }
+    }
+
+    .prg{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s ease-in-out;
+    }
+
+    .icon{
+      stroke: #8300ff;
+      font-size: 48px;
+      color: #8300ff;
+    }
+
+
+
+  }
+
+
+}

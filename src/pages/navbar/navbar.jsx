@@ -41,7 +41,7 @@ function Navbar() {
                 <Link className={`navBarLink ${activeNav === "products" && "activeNavBarLink"}`} to='/products'><RiFileList2Line className="navbarIcon"/></Link>
                 <Link className={`navBarLink ${activeNav === "store" && "activeNavBarLink"}`} to='/store'><PiStorefrontBold className="navbarIcon"/></Link>
                 <Link className={`navBarLink ${activeNav === "statistics" && "activeNavBarLink"}`} to='/statistics'><MdOutlineAnalytics className="navbarIcon"/></Link>
-                <Link className={`navBarLink ${activeNav === "info" && "activeNavBarLink"}`} to='/info'><RiInformation2Line className="navbarIcon"/></Link>
+                <Link className={`navBarLink ${activeNav === "menu" && "activeNavBarLink"}`} to='/menu'><RiInformation2Line className="navbarIcon"/></Link>
             </div>
 
 

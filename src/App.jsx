@@ -12,9 +12,16 @@ import Store from './pages/store/store.jsx';
 import Statistics from "./pages/statistics/statistics.jsx";
 import Main from "./pages/statistics/main/main.jsx";
 import {StatisticsProvider} from "./pages/statistics/statisticsContext.jsx";
+import {MenuProvider} from "./pages/menu/menuContext.jsx";
+import Menu from "./pages/menu/menu.jsx"
+import MenuMain from "./pages/menu/main/menuMain.jsx";
+import Notes from "./pages/menu/notes/notes.jsx";
+
+
+
 
 function App() {
-    const {t} = useTranslation()
+    // const {t} = useTranslation()
     const [activeBackground,setActiveBackground] = useState(null);
     const backgrounds = [
         Images.backgroundImg1,
@@ -40,6 +47,7 @@ function App() {
                 <Route path='/products' element={<ProductTypesMain/>}/>
                 <Route path='/partners' element={<Partners/>}/>
                 <Route path='/store' element={<Store/>} />
+
                 <Route path="/statistics" element={
                     <StatisticsProvider>
                         <Statistics/>
@@ -47,6 +55,16 @@ function App() {
 
                     <Route path="/statistics/" element={<Main/>}/>
                 </Route>
+
+                <Route path='/menu' element={
+                    <MenuProvider>
+                        <Menu/>
+                    </MenuProvider>}>
+
+                    <Route path='/menu/' element={<MenuMain/>} />
+                    <Route path='/menu/notes' element={<Notes/>} />
+                </Route>
+
             </Routes>
         </div>
     );

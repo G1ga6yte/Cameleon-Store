@@ -163,5 +163,10 @@
     "header3": "Store reports",
     "header4": "Sales reports"
 
+  },
+  "menu": {
+    "header1": "Personal info",
+    "header2": "Settings",
+    "header3": "Notes"
   }
 }
