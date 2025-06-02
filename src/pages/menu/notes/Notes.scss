@@ -1,3 +1,40 @@
 .notesContainer{
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  flex-wrap: wrap;
+  padding: 16px;
+  position: relative;
 
+
+  .noteContainer{
+    width: 24%;
+    height: 200px;
+    border-radius: 16px;
+    border: 1px solid #8300ff;
+
+  }
+
+  .addBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+      background-color: #8300ff;
+      .icon{
+        fill: white;
+      }
+    }
+
+
+    .icon{
+      font-size: 40px;
+      fill: #8300ff;
+      transition: 0.2s ease-in-out;
+    }
+  }
 }
